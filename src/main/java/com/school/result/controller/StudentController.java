@@ -1,12 +1,19 @@
 package com.school.result.controller;
 
+import com.school.result.pojo.Gradation;
 import com.school.result.pojo.Student;
+import com.school.result.service.GradationService;
 import com.school.result.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import java.util.List;
+import java.util.Map;
 
 @Controller
 @RequestMapping("/student")
@@ -16,12 +23,21 @@ public class StudentController {
 
     @ResponseBody
     @RequestMapping(value = "/addStu", method = RequestMethod.POST)
-    public boolean addStu(Student student){
-        if(studentService.addStu(student)>0){
+    public boolean addStu(Student student) {
+        if (studentService.addStu(student) > 0) {
             return true;
-        }else{
+        } else {
             return false;
         }
     }
+
+
+
+//    @GetMapping("/addStu")
+//    public String selGras(Model model) {
+//
+//        System.out.println("=list"+list.size()+"---"+list.toString());
+//        return "/addStu";  //返回到所使用的页面
+//    }
 
 }
