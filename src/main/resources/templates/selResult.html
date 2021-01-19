@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>查询学生成绩</title>
+    <link rel="stylesheet" href="/css/common.css">
+    <link rel="stylesheet" href="/css/selResult.css">
+</head>
+
+<body>
+    <div class="stu-title">
+        查询学生成绩
+    </div>
+    <div class="result-sel-div">
+        <!-- 模糊查询 -->
+        <table class="result-like-table">
+            <tr align="center">
+                <td><span class="title">* </span>请选择：</td>
+                <td><select class="textBox textBox-class stuGradation">
+                        <option>层次</option>
+                        <option>2019级</option>
+                        <option>2020级</option>
+                    </select>
+                </td>
+                <td>
+                    <select class="textBox textBox-class stuGrade">
+                        <option>年级</option>
+                        <option>七年级</option>
+                        <option>八年级</option>
+                    </select>
+                </td>
+                <td>
+                    <select class="textBox textBox-class stuClass">
+                        <option>班级</option>
+                        <option>1班</option>
+                        <option>2班</option>
+                    </select>
+                </td>
+                <td><select class="textBox textBox-class stuExamType">
+                        <option>考试类型</option>
+                        <option>日测</option>
+                        <option>周考</option>
+                        <option>期中考试</option>
+                        <option>期末考试</option>
+                    </select>
+                </td>
+                <td>
+                    <select class="textBox textBox-class stuSubject">
+                        <option>考试科目</option>
+                        <option>全部</option>
+                        <option>语文</option>
+                        <option>数学</option>
+                        <option>英语</option>
+                    </select>
+                </td>
+                <td align="center" width="120">
+                    <button class="btn1">查 询</button>
+                </td>
+            </tr>
+        </table>
+        <h3 align="right" class="generate"><a href="#">导成Excel表格</a></h3>
+        <!-- 详细成绩 -->
+        <table align="center" class="result-sel-table">
+            <tr>
+                <th>序号</th>
+                <th>学号</th>
+                <th width="150">姓名</th>
+                <th width="100">语文</th>
+                <th width="100">数学</th>
+                <th width="100">英语</th>
+                <th width="100">总成绩</th>
+                <th width="100">平均分</th>
+                <th width="150">备注</th>
+            </tr>
+            <tr align="center">
+                <td>1</td>
+                <td>S1101001</td>
+                <td>张潇洒</td>
+                <td>88</td>
+                <td>78</td>
+                <td>99</td>
+                <td>630</td>
+                <td>120</td>
+                <td></td>
+            </tr>
+            <tr align="center">
+                <td>1</td>
+                <td>S1101001</td>
+                <td>张潇洒</td>
+                <td>88</td>
+                <td>78</td>
+                <td>99</td>
+                <td>630</td>
+                <td>120</td>
+                <td></td>
+            </tr>
+            <tr align="center">
+                <td>1</td>
+                <td>S1101001</td>
+                <td>张潇洒</td>
+                <td>88</td>
+                <td>78</td>
+                <td>99</td>
+                <td>630</td>
+                <td>120</td>
+                <td></td>
+            </tr>
+            <tr align="center">
+                <td>1</td>
+                <td>S1101001</td>
+                <td>张潇洒</td>
+                <td>88</td>
+                <td>78</td>
+                <td>99</td>
+                <td>630</td>
+                <td>120</td>
+                <td></td>
+            </tr>
+            <tr align="center">
+                <td>1</td>
+                <td>S1101001</td>
+                <td>张潇洒</td>
+                <td>88</td>
+                <td>78</td>
+                <td>99</td>
+                <td>630</td>
+                <td>120</td>
+                <td></td>
+            </tr>
+            <tr align="center">
+                <td>1</td>
+                <td>S1101001</td>
+                <td>张潇洒</td>
+                <td>88</td>
+                <td>78</td>
+                <td>99</td>
+                <td>630</td>
+                <td>120</td>
+                <td></td>
+            </tr>
+            <tr align="center">
+                <td>1</td>
+                <td>S1101001</td>
+                <td>张潇洒</td>
+                <td>88</td>
+                <td>78</td>
+                <td>99</td>
+                <td>630</td>
+                <td>120</td>
+                <td></td>
+            </tr>
+            <tr align="center">
+                <td>1</td>
+                <td>S1101001</td>
+                <td>张潇洒</td>
+                <td>88</td>
+                <td>78</td>
+                <td>99</td>
+                <td>630</td>
+                <td>120</td>
+                <td></td>
+            </tr>
+            <tr align="center">
+                <td>1</td>
+                <td>S1101001</td>
+                <td>张潇洒</td>
+                <td>88</td>
+                <td>78</td>
+                <td>99</td>
+                <td>630</td>
+                <td>120</td>
+                <td></td>
+            </tr>
+            <tr align="center">
+                <td>1</td>
+                <td>S1101001</td>
+                <td>张潇洒</td>
+                <td>88</td>
+                <td>78</td>
+                <td>99</td>
+                <td>630</td>
+                <td>120</td>
+                <td></td>
+            </tr>
+        </table>
+        <!-- 分页 -->
+        <table class="result-page-table">
+            <tr align="center">
+                <td>
+                    <a href="javascript:void(0)" class="startPage">首页</a>
+                </td>
+                <td>
+                    <a href="javascript:void(0)" class="prevPage">上一页</a>
+                </td>
+                <td>
+                    1/1
+                </td>
+                <td>
+                    <a href="javascript:void(0)" class="nextPage">下一页</a>
+                </td>
+                <td>
+                    <a href="javascript:void(0)" class="endPage">尾页</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="/img/logo_24px.ico" type="image/x-icon" />
+    <title>普通中学成绩管理系统</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+<div class="sidebar">
+    <!-- sidebartop -->
+    <div class="sidebar__top">
+        <div class="top">
+            <h2 align="center">普通中学<br>成绩管理系统</h2>
+        </div>
+    </div>
+    <!--sidebar navigation -->
+    <div class="sidebar__nav">
+        <h5 align="right">欢迎您：张三</h5>
+        <ul class="sidebar__menu">
+            <li class="sidebar__menu--item">
+                <a href="/addStu" target="mainFrame">
+                    <span>▶&nbsp;&nbsp;</span>添加学生信息
+                </a>
+            </li>
+            <li class="sidebar__menu--item">
+                <a href="/selStu" target="mainFrame">
+                    <span>▶&nbsp;&nbsp;</span>查询学生信息
+                </a>
+            </li>
+            <li class="sidebar__menu--item">
+                <a href="/addResult" target="mainFrame">
+                    <span>▶&nbsp;&nbsp;</span>添加学生成绩
+                </a>
+            </li>
+            <li class="sidebar__menu--item">
+                <a href="/selResult" target="mainFrame">
+                    <span>▶&nbsp;&nbsp;</span>查询学生成绩
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<iframe src="/selResult" name="mainFrame" width="100%" height="100%" frameborder="0"></iframe>
+
+<!-- 左侧导航栏选中，含有绿色的背景颜色 -->
+<script src="/js/address/script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,86 @@
+* {
+  padding: 0px;
+  margin: 0px;
+}
+body {
+  font-size: 12px;
+}
+/* 外层div */
+.result-add-div {
+  width: 97%;
+  height: 560px;
+  margin: 0px auto;
+  padding: 15px;
+}
+.result-add-div table {
+  border: 1px solid #cccccc;
+  width: 100%;
+  border-collapse: collapse;
+}
+.result-add-div table tr {
+  height: 50px;
+}
+
+/* ****************************《表格》分割线**************************** */
+/* 表格 */
+.result-dance-table {
+  /* margin-top: 10px; */
+}
+/* 二级联动，选择考试科目，输入总分 */
+.chooseSubject-table {
+  display: none;
+  margin-top: 15px;
+}
+/* ****************************《表单元素》分割线**************************** */
+/* 一级联动，选择层次、年级、班级、考试类型 */
+.textBox-class {
+  width: 160px;
+}
+/* 普通文本框 */
+.textBox {
+  border: 1px#B0B0B2 solid;
+  height: 34px;
+  line-height: 34px;
+  padding: 5px 3px;
+  vertical-align: middle;
+}
+/* 总分文本框 */
+.textBox-totalScore {
+  height: 24px;
+  line-height: 24px;
+  padding: 3px 5px;
+  width: 70px;
+  text-align: center;
+}
+/* 生成提示文字 */
+.generate {
+  line-height: 40px;
+  display: none;
+  text-align: center;
+}
+/* ****************************以下是查询的具体数据**************************** */
+/* 添加考试成绩的表格 */
+.result-add-table {
+  display: none;
+  margin-top: 15px;
+}
+.result-add-div .result-add-table tr {
+  height: 34px;
+}
+.result-add-div .result-add-table tr td,
+.result-add-div .result-add-table tr th {
+  border: 1px solid #cccccc;
+}
+
+.result-add-table tr:nth-of-type(1) {
+  background-color: #dddddd;
+}
+/* 表格除了第一行，其他行背景颜色变色 */
+.result-add-table tr:not(:first-child) td:nth-child(3) ~ td {
+  background-color: rgba(255, 91, 39, 0.2);
+}
+/* 表格除了第一行，其他行鼠标移上去变背景颜色 */
+.result-add-table tr:not(:first-child) td:nth-child(3) ~ td:hover {
+  background-color: rgba(255, 91, 39, 0.1);
+  transition: 0.3s;
+}

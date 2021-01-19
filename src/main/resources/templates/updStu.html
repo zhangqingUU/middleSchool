@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>修改学生信息</title>
+    <link rel="stylesheet"  href="/css/addStu.css"/>
+    <link rel="stylesheet" href="/css/common.css">
+</head>
+
+<body>
+    <div class="stu-title">
+        修改学生信息
+    </div>
+    <div class="stu-add">
+        <table border="0" width="740" align="center">
+            <tr>
+                <td align="right" width="110"><span class="title">* </span>学号：</td>
+                <td>S1101001</td>
+            </tr>
+            <tr>
+                <td align="right"><span class="title">* </span>姓名：</td>
+                <td><input type="text" class="stuTextBox stuName">&nbsp;&nbsp;&nbsp;<span class="boolean">✔</span></td>
+            </tr>
+            <tr>
+                <td align="right"><span class="title">* </span>性别：</td>
+                <td>
+                    <input type="radio" name="sex" class="stuSex" checked id="men"><label for="men">男</label>
+                    &nbsp;&nbsp;&nbsp;
+                    <input type="radio" name="sex" class="stuSex" id="women"><label for="women">女</label>
+                </td>
+            </tr>
+            <tr>
+                <td align="right"><span class="title">* </span>班级：</td>
+                <td>
+                    <select class="stuTextBox4 stuGradation">
+                        <option>层次</option>
+                        <option>2019级</option>
+                        <option>2020级</option>
+                    </select>
+                    <select class="stuTextBox4 stuGrade">
+                        <option>年级</option>
+                        <option>七年级</option>
+                        <option>八年级</option>
+                    </select>
+                    <select class="stuTextBox4 stuClass">
+                        <option>班级</option>
+                        <option>1班</option>
+                        <option>2班</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td align="right">手机：</td>
+                <td><input type="text" class="stuTextBox stuPhone"></td>
+            </tr>
+            <tr>
+                <td align="right">邮箱：</td>
+                <td><input type="email" class="stuTextBox stuEmail"></td>
+            </tr>
+            <tr>
+                <td align="right"><span class="title">* </span>出生日期：</td>
+                <td><input type="date" class="stuTextBox stuBornDate">&nbsp;&nbsp;&nbsp;<span class="boolean">✔</span>
+                </td>
+            </tr>
+            <tr>
+                <td align="right"><span class="title">* </span>身份证号：</td>
+                <td><input type="text" class="stuTextBox stuIdCard">&nbsp;&nbsp;&nbsp;<span class="boolean">✔</span>
+                </td>
+            </tr>
+            <tr>
+                <td align="right"><span class="title">* </span>家庭住址：</td>
+                <td>
+                    <form class="form-inline">
+                        <div data-toggle="distpicker">
+                            <select class="stuTextBox2 stu-address1" id="province1"></select>
+                            <select class="stuTextBox2 stu-address2" id="city1"></select>
+                            <select class="stuTextBox2 stu-address3" id="district1"></select>
+                            <input type="text" class="stuTextBox3 stu-address4">&nbsp;&nbsp;&nbsp;<span
+                                class="boolean">✔</span>
+                        </div>
+                    </form>
+                </td>
+            </tr>
+            <tr align="center">
+                <td align="right">
+                    备注：
+                </td>
+                <td align="left">
+                    <textarea cols="76" maxlength="200" rows="5" class="stuBeiZhu"></textarea>
+                </td>
+            </tr>
+            <tr align="center">
+                <td colspan="2">
+                    <button>添 加</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <button>返 回</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <!-- 以下5个文件是地址的三级联动，开始 -->
+    <script src="http://www.jq22.com/jquery/1.11.1/jquery.min.js"></script>
+    <script src="/js/address/distpicker.data.js"></script>
+    <script src="/js/address/distpicker.js"></script>
+    <script src="/js/address/main.js"></script>
+    <!-- 以上5个文件是地址的三级联动，结束 -->
+</body>
+
+</html>

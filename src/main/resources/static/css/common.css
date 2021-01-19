@@ -1,0 +1,57 @@
+/* 通用的css，举例：标题、按钮、…… */
+/* 标题 */
+.stu-title {
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  border-bottom: 1px solid #b6b6b6;
+  font-weight: bold;
+  font-size: 15px;
+  font-family: "微软雅黑";
+  text-indent: 1em;
+}
+/* 按钮 */
+button {
+  height: 34px;
+  line-height: 34px;
+  padding: 0 24px;
+  background-color: #009688;
+  color: #fff;
+  text-align: center;
+  font-size: 14px;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  /*  */
+  outline: 0;
+  box-sizing: border-box;
+}
+/* 按钮-移上 */
+button:hover {
+  opacity: 0.8;
+  transition: 1s;
+}
+/* 提示 */
+.title {
+  color: red;
+  font-weight: bold;
+}
+/* 美化复选框 */
+.toggle {
+  text-align: center;
+  vertical-align: middle;
+  border: none;
+  appearance: none;
+  /*关键代码*/
+  -webkit-appearance: none;
+  outline: none;
+  cursor: pointer;
+}
+/* 美化复选框---未选中 */
+.toggle::after {
+  content: url('../img/unchecked_16px.png');
+}
+/* 美化复选框---选中 */
+.toggle:checked::after {
+  content: url('../img/checked_16px.png');
+}
