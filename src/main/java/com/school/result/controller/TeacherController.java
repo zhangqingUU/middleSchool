@@ -23,6 +23,7 @@ public class TeacherController {
     @RequestMapping(value = "/loginIn", method = RequestMethod.POST)
     @ResponseBody
     public Teacher loginIn(String phone, String loginPwd) {
+
         return teacherService.loginIn(phone, loginPwd);
     }
 

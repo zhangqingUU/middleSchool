@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.school.result.mapper.StudentMapper">
+    <insert id="addStu" parameterType="com.school.result.pojo.Student" keyProperty="studentNo" useGeneratedKeys="true">
+        insert into `student` (
+            `studentName`,
+            `loginPwd`,
+            `sex`,
+            `phone`,
+            `address`,
+            `bornDate`,
+            `email`,
+            `idCard`,
+            `gradationId`,
+            `gradeId`,
+            `classId`,
+            `studyStatus`,
+            `beiZhu`
+        )
+        values
+        (
+            #{student.studentName},
+            '123456',
+            #{student.sex},
+            #{student.phone},
+            #{student.address},
+            #{student.bornDate},
+            #{student.email},
+            #{student.idCard},
+            #{student.gradationId},
+            #{student.gradeId},
+            #{student.classId},
+            '在读',
+            #{student.beiZhu}
+        );
+    </insert>
+</mapper>
