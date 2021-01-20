@@ -48,12 +48,12 @@ public class HelloController {
 
     @GetMapping("/addStu")
     public String addStu(Model model) {
-        List<Gradation> list1 = gradationService.selGraList();//查询
-        model.addAttribute("grasList", list1);
-        List<Grade> list2 = gradeService.selGraListByGId(2);
-        model.addAttribute("gradeList", list2);
-        List<Class2> list3 = classService.getClaByGradeId(1);
-        model.addAttribute("classList", list3);
+//        List<Gradation> list1 = gradationService.selGraList();//查询
+//        model.addAttribute("grasList", list1);
+//        List<Grade> list2 = gradeService.selGraListByGId(2);
+//        model.addAttribute("gradeList", list2);
+//        List<Class2> list3 = classService.getClaByGradeId(1);
+//        model.addAttribute("classList", list3);
         return "addStu";
     }
 

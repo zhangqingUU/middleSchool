@@ -1,8 +1,3 @@
-$(document).ready(function (){
-    console.log();
-});
-
-
 var bo = false;//验证表单元素是否正确！关键
 /**
  * 检验学生姓名
@@ -109,7 +104,55 @@ function checkClass(here) {
 
 //清空
 function clearAll(){
-    $(".stu-add").find("input[type='text']").val("");
-    $(".stuBeiZhu").val("");
-    $('.stu-add select').prop('selectedIndex', 0);
+    $(".stu-add").find("input[type='text']").val("");//普通文本框
+    $(".stuBeiZhu").val("");//多行文本域
+    $('.stu-add select').prop('selectedIndex', 0);//下拉框默认选中第一个
+}
+
+
+function selGrasList(){
+    $.post("/gradation/selGraList","",function(data){
+        $.each(data,function(i,v){
+            var $option="<option value='"+v.gradationId+"'>"+v.gradationName+"</option>"
+            $(".stuGradation").append($option);
+        })
+    },"json");
+}
+
+//加载第几届，层次的全部信息
+function selGrasList(){
+    $.post("/gradation/selGraList","",function(data){
+        $.each(data,function(i,v){
+            var $option="<option value='"+v.gradationId+"'>"+v.gradationName+"</option>"
+            $(".stuGradation").append($option);
+        })
+    },"json");
+}
+
+//层次改变事件
+function changeGraListByGId(here){
+    $(".stuGrade").find("option:gt(0)").remove();
+    $(".stuGrade").prop('selectedIndex', 0);
+    $(".stuClass").prop('selectedIndex', 0);
+
+    var id=$(here).val();
+    $.post("/grade/selGraListByGId","gradationId="+id,function(data){
+        $.each(data,function(i,v){
+            var $option="<option value='"+v.gradeId+"'>"+v.gradeName+"</option>"
+            $(".stuGrade").append($option);
+        })
+    },"json");
+}
+
+
+//年级改变事件
+function changeGradeByGId(here){
+    var gradeId=$(here).val();
+    alert(gradeId);
+    $("/class2/selClaListByGId","gradeId="+gradeId,function () {
+        $.each(data,function(i,v){
+            var $option="<option value='"+v.classId+"'>"+v.className+"</option>"
+            $(".stuClass").append($option);
+        })
+    },"json")
 }

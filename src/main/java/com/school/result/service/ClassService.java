@@ -11,5 +11,5 @@ import java.util.List;
  * @Description:
  */
 public interface ClassService {
-    List<Class2> getClaByGradeId(int gradeId);
+    List<Class2> setClaByGradeId(int gradeId);
 }

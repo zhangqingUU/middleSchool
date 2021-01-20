@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="/css/common.css">
 </head>
 
-<body>
+<body onload="selGrasList()">
 <div class="stu-title">
     添加学生信息
 </div>
@@ -36,17 +36,17 @@
         <tr>
             <td align="right"><span class="title">* </span>班级：</td>
             <td>
-                <select class="stuTextBox4 stuGradation" onblur="checkClass(this)">
+                <select class="stuTextBox4 stuGradation" onblur="checkClass(this)" onchange="changeGraListByGId(this)">
                     <option value="0">层次</option>
-                    <option th:each="a:${grasList}" th:value="${a.gradationId}" th:text="${a.gradationName}"></option>
+                   <!-- <option th:each="a:${grasList}" th:value="${a.gradationId}" th:text="${a.gradationName}"></option>-->
                 </select>
-                <select class="stuTextBox4 stuGrade" onblur="checkClass(this)">
+                <select class="stuTextBox4 stuGrade" onblur="checkClass(this)" onchange="changeGradeByGId(this)">
                     <option value="0">年级</option>
-                    <option th:each="a:${gradeList}" th:value="${a.gradeId}" th:text="${a.gradeName}"></option>
+                    <!--<option th:each="a:${gradeList}" th:value="${a.gradeId}" th:text="${a.gradeName}"></option>-->
                 </select>
                 <select class="stuTextBox4 stuClass" onblur="checkClass(this)">
                     <option value="0">班级</option>
-                    <option th:each="a:${classList}" th:value="${a.classId}" th:text="${a.className}"></option>
+                    <!--<option th:each="a:${classList}" th:value="${a.classId}" th:text="${a.className}"></option>-->
                 </select>
                 &nbsp;&nbsp;&nbsp;<span class="boolean">✔</span>
             </td>
