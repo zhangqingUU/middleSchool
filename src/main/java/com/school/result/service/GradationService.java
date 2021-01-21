@@ -18,5 +18,5 @@ public interface GradationService {
      * 查询所有的层次信息
      * @return
      */
-    List<Gradation> selGraList();
+    List<Gradation> selGraList(int teacherId);
 }

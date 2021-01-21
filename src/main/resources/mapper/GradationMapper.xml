@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.school.result.mapper.GradationMapper">
-    <select id="selGraList" resultType="com.school.result.pojo.Gradation">
-        select gradationId,gradationName from gradation
+    <select id="selGraList" resultType="com.school.result.pojo.Gradation" parameterType="int">
+        select * from gradation
+	where gradationid in(
+	select gradationid from grade
+		where gradeid in (
+		select gradeid from class
+		where classId in(select classId from class_teacher
+			where teacherid=#{teacherId}
+		)
+	)
+)
     </select>
 </mapper>

@@ -26,8 +26,8 @@ public class GradationController {
 
     @RequestMapping(value = "/selGraList", method = RequestMethod.POST)
     @ResponseBody
-    public List<Gradation> selGraList(){
-        return gradationService.selGraList();
+    public List<Gradation> selGraList(int teacherId){
+        return gradationService.selGraList(teacherId);
     }
 
 

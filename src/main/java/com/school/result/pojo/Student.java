@@ -30,6 +30,6 @@ public class Student {
     private int gradationId;//层次，第几届
     private int gradeId;//年级编号
     private int classId;//班级编号
-    private String studyStatus;//学习状态：在读（默认）、已毕业
+    private String stuStatus;//学习状态：在读（默认）、已毕业
     private String beiZhu;//备注
 }

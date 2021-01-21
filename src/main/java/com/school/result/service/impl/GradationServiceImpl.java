@@ -21,7 +21,7 @@ public class GradationServiceImpl implements GradationService {
     private GradationMapper gradationMapper;
 
     @Override
-    public List<Gradation> selGraList() {
-        return gradationMapper.selGraList();
+    public List<Gradation> selGraList(int teacherId) {
+        return gradationMapper.selGraList(teacherId);
     }
 }

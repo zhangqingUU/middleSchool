@@ -121,7 +121,7 @@ function selGrasList(){
 
 //加载第几届，层次的全部信息
 function selGrasList(){
-    $.post("/gradation/selGraList","",function(data){
+    $.post("/gradation/selGraList","teacherId=1",function(data){
         $.each(data,function(i,v){
             var $option="<option value='"+v.gradationId+"'>"+v.gradationName+"</option>"
             $(".stuGradation").append($option);
@@ -134,9 +134,12 @@ function changeGraListByGId(here){
     $(".stuGrade").find("option:gt(0)").remove();
     $(".stuGrade").prop('selectedIndex', 0);
     $(".stuClass").prop('selectedIndex', 0);
-
     var id=$(here).val();
-    $.post("/grade/selGraListByGId","gradationId="+id,function(data){
+    var json={
+        teacherId:1,
+        gradationId:id
+    };
+    $.post("/grade/selGraListByGId",json,function(data){
         $.each(data,function(i,v){
             var $option="<option value='"+v.gradeId+"'>"+v.gradeName+"</option>"
             $(".stuGrade").append($option);
@@ -147,12 +150,27 @@ function changeGraListByGId(here){
 
 //年级改变事件
 function changeGradeByGId(here){
+    $(".stuClass").find("option:gt(0)").remove();
+    $(".stuClass").prop('selectedIndex', 0);
     var gradeId=$(here).val();
-    alert(gradeId);
-    $("/class2/selClaListByGId","gradeId="+gradeId,function () {
+    $.post("/class2/selClaListByGId","gradeId="+gradeId,function (data) {
         $.each(data,function(i,v){
-            var $option="<option value='"+v.classId+"'>"+v.className+"</option>"
+            var $option="<option value='"+v.classId+"'>"+123+"</option>";
             $(".stuClass").append($option);
         })
     },"json")
+}
+
+
+//添加验证
+function checkAdd(){
+
+}
+
+//添加学生信息
+function addStu(){
+    if(checkAdd()==false){
+        alert("请完善学生信息！");
+        return;
+    }
 }
