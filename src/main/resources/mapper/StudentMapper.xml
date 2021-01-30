@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.school.result.mapper.StudentMapper">
-    <insert id="addStu" parameterType="com.school.result.pojo.Student" keyProperty="studentNo" useGeneratedKeys="true">
+    <insert id="addStu" parameterType="Student" keyProperty="studentNo" useGeneratedKeys="true">
         insert into `student` (
             `studentName`,
             `loginPwd`,
@@ -14,7 +14,7 @@
             `gradationId`,
             `gradeId`,
             `classId`,
-            `studyStatus`,
+            `stuStatus`,
             `beiZhu`
         )
         values

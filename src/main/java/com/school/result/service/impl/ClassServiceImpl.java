@@ -20,7 +20,7 @@ public class ClassServiceImpl implements ClassService {
     private ClassMapper classMapper;
 
     @Override
-    public List<Class2> setClaByGradeId(int gradeId) {
-        return classMapper.setClaByGradeId(gradeId);
+    public List<Class2> setClaByGradeId(int gradationId,int gradeId,int classId) {
+        return classMapper.setClaByGradeId(gradationId,gradeId,classId);
     }
 }

@@ -20,7 +20,7 @@ public class GradeController {
 
     @RequestMapping(value = "/selGraListByGId", method = RequestMethod.POST)
     @ResponseBody
-    public List<Grade> selGraListByGId(int gradationId){
-        return gradeService.selGraListByGId(gradationId);
+    public List<Grade> selGraListByGId(int gradationId,int teacherId){
+        return gradeService.selGraListByGId(gradationId, teacherId);
     }
 }

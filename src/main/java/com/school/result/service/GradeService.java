@@ -13,5 +13,5 @@ import java.util.List;
  */
 @Component
 public interface GradeService {
-    List<Grade> selGraListByGId(int gradationId);
+    List<Grade> selGraListByGId(int gradationId,int teacherId);
 }

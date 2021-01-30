@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 import java.sql.Timestamp;
+import java.util.Date;
 
 /**
  * @Author: 张晴
@@ -17,14 +18,13 @@ import java.sql.Timestamp;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Student {
-
     private int studentNo;//学号
     private String studentName;//学生姓名
     private String loginPwd;//密码
-    private String sex;//行呗
+    private String sex;//性别
     private String phone;//手机号
     private String address;//地址
-    private Timestamp bornDate;//出生日期
+    private String bornDate;//出生日期
     private String email;//邮箱
     private String idCard;//身份证号
     private int gradationId;//层次，第几届

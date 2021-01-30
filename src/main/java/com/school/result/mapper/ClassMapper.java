@@ -13,5 +13,5 @@ import java.util.List;
  */
 @Component
 public interface ClassMapper {
-    List<Class2> setClaByGradeId(@Param("gradeId") int gradeId);
+    List<Class2> setClaByGradeId(@Param("gradationId")int gradationId,@Param("gradeId") int gradeId,@Param("teacherId") int teacherId);
 }

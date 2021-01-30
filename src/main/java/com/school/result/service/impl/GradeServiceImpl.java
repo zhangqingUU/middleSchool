@@ -20,7 +20,7 @@ public class GradeServiceImpl implements GradeService {
     private GradeMapper gradeMapper;
 
     @Override
-    public List<Grade> selGraListByGId(int gradationId) {
-        return gradeMapper.selGraListByGId(gradationId);
+    public List<Grade> selGraListByGId(int gradationId,int teacherId) {
+        return gradeMapper.selGraListByGId(gradationId,teacherId);
     }
 }

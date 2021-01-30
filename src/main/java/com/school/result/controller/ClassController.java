@@ -19,7 +19,7 @@ public class ClassController {
 
     @RequestMapping(value = "/selClaListByGId", method = RequestMethod.POST)
     @ResponseBody
-    public List<Class2> setClaByGradeId(int gradeId){
-        return classService.setClaByGradeId(gradeId);
+    public List<Class2> setClaByGradeId(int gradationId,int gradeId,int teacherId){
+        return classService.setClaByGradeId(gradationId,gradeId,teacherId);
     }
 }

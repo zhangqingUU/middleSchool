@@ -2,15 +2,18 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.school.result.mapper.GradationMapper">
     <select id="selGraList" resultType="com.school.result.pojo.Gradation" parameterType="int">
+    /*根据登录老师的id查询所带班的层次*/
         select * from gradation
-	where gradationid in(
-	select gradationid from grade
-		where gradeid in (
-		select gradeid from class
-		where classId in(select classId from class_teacher
-			where teacherid=#{teacherId}
-		)
-	)
-)
+        where gradationid in(
+        select gradationid from grade
+        where gradeid in (
+        select gradeid from class
+        where classId in(
+        select distinct classId
+        from teacher t,class_teacher ct
+        where t.`teacherId`=ct.teacherId and t.`posterId` &lt; 6 and t.`teacherId`=#{teacherId}
+          )
+        )
+        )
     </select>
 </mapper>

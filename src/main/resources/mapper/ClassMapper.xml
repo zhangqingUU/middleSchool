@@ -1,7 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.school.result.mapper.ClassMapper">
-    <select id="setClaByGradeId" resultType="com.school.result.pojo.Class2" parameterType="int">
-        select classId,className,gradeId from class where gradeId=#{gradeId}
+    <select id="setClaByGradeId" resultType="Class2" parameterType="int">
+        /*根据登录老师的id查询所带班级*/
+        select c.classId,c.className
+        from class c,grade g
+        where c.`gradeId`=g.`gradeId`
+        and g.gradeId=#{gradeId} and g.`gradationId`=#{gradationId}
+        and c.classId in(
+        select distinct classId
+        from teacher t,class_teacher ct
+        where t.`teacherId`=ct.teacherId and  t.`posterId` &lt; 6 and t.`teacherId`=#{teacherId}
+        )
+
     </select>
 </mapper>

@@ -17,8 +17,8 @@
 <div class="stu-add">
     <table border="0" width="740" align="center">
         <tr>
-            <td align="right" width="110"><span class="title">* </span>学号：</td>
-            <td>S1101001</td>
+            <td align="right" width="110"><!--<span class="title">* </span>学号：--></td>
+            <td class="title">温馨提示：学号会在后台默认自动生成</td>
         </tr>
         <tr>
             <td align="right"><span class="title">* </span>姓名：</td>
@@ -28,9 +28,9 @@
         <tr>
             <td align="right"><span class="title">* </span>性别：</td>
             <td>
-                <input type="radio" name="sex" class="stuSex" checked id="men"><label for="men">男</label>
+                <input type="radio" name="sex" class="stuSex" checked id="men" value="男"><label for="men">男</label>
                 &nbsp;&nbsp;&nbsp;
-                <input type="radio" name="sex" class="stuSex" id="women"><label for="women">女</label>
+                <input type="radio" name="sex" class="stuSex" id="women" value="女"><label for="women">女</label>
             </td>
         </tr>
         <tr>
@@ -98,7 +98,7 @@
         </tr>
         <tr align="center">
             <td colspan="2">
-                <button>添 加</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <button onclick="addStu()">添 加</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <button onclick="clearAll()">清 空</button>
             </td>
         </tr>

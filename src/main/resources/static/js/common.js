@@ -28,3 +28,21 @@ function com_checkIdCard(idCardVal) {
         return false;//非合法身份证号
     }
 }
+
+/**
+ * 正确提示
+ * @param here
+ */
+function titleTrue(here) {
+    $(here).siblings(".boolean").text("✔").css("color", "green");
+    bo = true;//验证通过！
+}
+
+/**
+ * 提示错误
+ * @param here
+ */
+function titleFalse(here) {
+    $(here).siblings(".boolean").text("✘").css("color", "red");
+    bo = false;
+}

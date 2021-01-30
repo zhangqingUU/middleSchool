@@ -12,24 +12,6 @@ function checkStuName(here) {
     }
 }
 
-/**
- * 正确提示
- * @param here
- */
-function titleTrue(here) {
-    $(here).siblings(".boolean").text("✔").css("color", "green");
-    bo = true;//验证通过！
-}
-
-/**
- * 提示错误
- * @param here
- */
-function titleFalse(here) {
-    $(here).siblings(".boolean").text("✘").css("color", "red");
-    bo = false;
-}
-
 //验证身份证号码
 function checkIdCard(here) {
     var idCard = $(here).val();
@@ -84,7 +66,7 @@ function checkDetailAddress(here) {
 
     if (province1 != "" && city1 != "" && district1 != "" && address != "") {
         titleTrue(here);
-    }else{
+    } else {
         titleFalse(here);
     }
 }
@@ -97,80 +79,131 @@ function checkClass(here) {
     //alert(stuGradation+"---"+stuGrade+"---"+stuClass);
     if (stuGradation != "0" && stuGrade != "0" && stuClass != "0") {
         titleTrue(here);
-    }else{
+    } else {
         titleFalse(here);
     }
 }
 
 //清空
-function clearAll(){
-    $(".stu-add").find("input[type='text']").val("");//普通文本框
+function clearAll() {
+    $(".stu-add").find("input").val("");//普通文本框
     $(".stuBeiZhu").val("");//多行文本域
     $('.stu-add select').prop('selectedIndex', 0);//下拉框默认选中第一个
+    $("input[name='sex']").get(0).checked = true;
 }
 
-
-function selGrasList(){
-    $.post("/gradation/selGraList","",function(data){
-        $.each(data,function(i,v){
-            var $option="<option value='"+v.gradationId+"'>"+v.gradationName+"</option>"
-            $(".stuGradation").append($option);
-        })
-    },"json");
-}
 
 //加载第几届，层次的全部信息
-function selGrasList(){
-    $.post("/gradation/selGraList","teacherId=1",function(data){
-        $.each(data,function(i,v){
-            var $option="<option value='"+v.gradationId+"'>"+v.gradationName+"</option>"
+function selGrasList() {
+    $.post("/gradation/selGraList", "teacherId=1", function (data) {
+        $.each(data, function (i, v) {
+            var $option = "<option value='" + v.gradationId + "'>" + v.gradationName + "</option>"
             $(".stuGradation").append($option);
         })
-    },"json");
+    }, "json");
 }
 
 //层次改变事件
-function changeGraListByGId(here){
+function changeGraListByGId(here) {
     $(".stuGrade").find("option:gt(0)").remove();
     $(".stuGrade").prop('selectedIndex', 0);
     $(".stuClass").prop('selectedIndex', 0);
-    var id=$(here).val();
-    var json={
-        teacherId:1,
-        gradationId:id
+    var id = $(here).val();
+    var json = {
+        teacherId: 1,
+        gradationId: id
     };
-    $.post("/grade/selGraListByGId",json,function(data){
-        $.each(data,function(i,v){
-            var $option="<option value='"+v.gradeId+"'>"+v.gradeName+"</option>"
+    $.post("/grade/selGraListByGId", json, function (data) {
+        $.each(data, function (i, v) {
+            var $option = "<option value='" + v.gradeId + "'>" + v.gradeName + "</option>"
             $(".stuGrade").append($option);
         })
-    },"json");
+    }, "json");
 }
 
 
 //年级改变事件
-function changeGradeByGId(here){
+function changeGradeByGId(here) {
     $(".stuClass").find("option:gt(0)").remove();
     $(".stuClass").prop('selectedIndex', 0);
-    var gradeId=$(here).val();
-    $.post("/class2/selClaListByGId","gradeId="+gradeId,function (data) {
-        $.each(data,function(i,v){
-            var $option="<option value='"+v.classId+"'>"+123+"</option>";
+    var gradeId = $(here).val();
+    var gradationId = $(".stuGradation").val();
+
+    //alert(gradeId+"---"+gradationId);
+
+    var json = {
+        gradeId: gradeId,
+        gradationId: gradationId,
+        teacherId: 1
+    };
+
+    $.post("/class2/selClaListByGId", json, function (data) {
+        //console.log(data);
+        $.each(data, function (i, v) {
+            var $option = "<option value='" + v.classId + "'>" + v.className + "</option>";
             $(".stuClass").append($option);
         })
-    },"json")
+    }, "json")
 }
 
 
-//添加验证
-function checkAdd(){
+//增强验证
+function checkAdd() {
+    //姓名、身份证号码、手机号码、邮箱、出生日期、详细地址、班级
+    $("input").blur();
+    $("select").blur();
+    $("textarea").blur();
 
+    var all = $(".boolean").text();
+    console.log(all);
+    if (all == "✔✔✔✔✔✔✔") {
+        return true;
+    }
+    alert("请完善学生信息！");
+    return false;//
 }
 
 //添加学生信息
-function addStu(){
-    if(checkAdd()==false){
-        alert("请完善学生信息！");
-        return;
-    }
+function addStu() {
+    // if(checkAdd()==false){
+    //    return;
+    // }
+
+    var name = $(".stuName").val();
+    var sex = $("input[name='sex']:checked").val();
+    var stuGradation = $(".stuGradation").val();
+    var stuGrade = $(".stuGrade").val();
+    var stuClass = $(".stuClass").val();
+    var phone = $(".stuPhone").val();
+    var email = $(".stuEmail").val();
+    var bornDate = $(".stuBornDate").val();
+    var idCard = $(".stuIdCard").val();
+    var beiZhu = $(".stuBeiZhu").val();
+    //地址使用-拼接
+    var detail_address = $(".stu-address1 option:selected").text() + "-" + $(".stu-address2 option:selected").text() + "-" + $(".stu-address3 option:selected").text() + "-" + $(".stu-address4").val();
+    //console.log(detail_address);
+
+    var json = {
+        studentName: name,
+        sex: sex,
+        gradationId: stuGradation,
+        gradeId: stuGrade,
+        classId: stuClass,
+        phone: phone,
+        email: email,
+        bornDate: bornDate,
+        idCard: idCard,
+        address: detail_address,
+        beiZhu: beiZhu
+    };
+    //console.log(json);
+    $.post("/student/addStu",json,function(result){
+        console.log(result);
+        if(result==true){
+            alert("添加成功！");
+        }else{
+            alert("添加失败！");
+        }
+    });
+
 }

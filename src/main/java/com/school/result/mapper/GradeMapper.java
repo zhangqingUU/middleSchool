@@ -18,5 +18,5 @@ public interface GradeMapper {
      * @param gradationId
      * @return
      */
-    List<Grade> selGraListByGId(@Param("gradationId") int gradationId);
+    List<Grade> selGraListByGId(@Param("gradationId") int gradationId,@Param("teacherId") int teacherId);
 }
