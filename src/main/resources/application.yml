@@ -6,8 +6,8 @@ spring:
       static-path-pattern: /**
   thymeleaf:
     cache: false
-#      prefix: classpath:/templates/
-#      suffix: .html
+  #      prefix: classpath:/templates/
+  #      suffix: .html
 
   datasource:
     driver-class-name: com.mysql.jdbc.Driver

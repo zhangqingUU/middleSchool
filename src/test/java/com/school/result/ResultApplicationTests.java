@@ -78,4 +78,9 @@ public class ResultApplicationTests {
         System.out.println(student2Mapper.selectCount(null));
     }
 
+    @Test
+    public void test5(){
+        System.out.println("123");
+    }
+
 }

@@ -70,4 +70,9 @@ public class StudentServiceImpl implements StudentService {
         return student2Mapper.selectCount(wrapper);
     }
 
+    @Override
+    public int delStu(int studentNo) {
+        return studentMapper.deleteById(studentNo);
+    }
+
 }

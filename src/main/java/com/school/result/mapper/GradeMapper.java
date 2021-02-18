@@ -11,7 +11,6 @@ import java.util.List;
  * @CreateTime: 2021-01-19
  * @Description:
  */
-@Component
 public interface GradeMapper {
     /**
      * 二级联动，根据层次id得到所有年级信息

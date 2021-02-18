@@ -28,9 +28,9 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
         <!--<dependency>-->
-            <!--<groupId>org.mybatis.spring.boot</groupId>-->
-            <!--<artifactId>mybatis-spring-boot-starter</artifactId>-->
-            <!--<version>2.1.4</version>-->
+        <!--<groupId>org.mybatis.spring.boot</groupId>-->
+        <!--<artifactId>mybatis-spring-boot-starter</artifactId>-->
+        <!--<version>2.1.4</version>-->
         <!--</dependency>-->
 
         <dependency>
@@ -83,6 +83,8 @@
             <artifactId>springfox-swagger-ui</artifactId>
             <version>2.9.2</version>
         </dependency>
+        <!--完美的分割线-->
+
 
     </dependencies>
 

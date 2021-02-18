@@ -3,6 +3,7 @@ package com.school.result.vo;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -45,4 +46,12 @@ public class StudentVO implements Serializable {
     private String gradeName;
     @TableField(value = "c.className")
     private String className;
+
+    public String getBornDate() {
+        return bornDate.substring(0,10);
+    }
+
+    public void setBornDate(String bornDate) {
+        this.bornDate = bornDate;
+    }
 }

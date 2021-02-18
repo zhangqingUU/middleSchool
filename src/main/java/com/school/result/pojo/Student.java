@@ -3,6 +3,7 @@ package com.school.result.pojo;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -29,6 +30,7 @@ public class Student implements  Serializable{
     private String phone;//手机号
     private String address;//地址
     @TableField(value = "bornDate")
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private String bornDate;//出生日期
     private String email;//邮箱
     @TableField(value = "idCard")

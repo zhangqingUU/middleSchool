@@ -9,7 +9,6 @@ import org.springframework.stereotype.Component;
  * @CreateTime: 2021-01-16
  * @Description: 教师DAO
  */
-@Component
 public interface TeacherMapper {
     /**
     * @Description:登录

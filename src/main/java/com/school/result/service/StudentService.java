@@ -26,4 +26,7 @@ public interface StudentService {
 
     //得到学生总人数
     int getCount(String studentNo, String studentName, String idCard, String gradationId, String gradeId,String classId);
+
+    //根据学号删除学生信息
+    int delStu(int studentNo);
 }

@@ -37,6 +37,7 @@ public class StudentController {
 
     @PostMapping("/selStu")
     public Message selStu(HttpServletRequest request) {
+        //分页查询
         //System.out.println("进来了");
         String studentNo = request.getParameter("studentNo");
         String studentName = request.getParameter("studentName");
@@ -51,7 +52,7 @@ public class StudentController {
 //        System.out.println("pageSize："+pageSize);
 
         List<StudentVO> studentVOList = studentService.selStu(currentPage, pageSize, studentNo, studentName, idCard, gradationId, gradeId, classId);
-        //studentVOList.forEach(System.out::println);
+        studentVOList.forEach(System.out::println);
         Map<String, Object> hashMap = new HashMap<>();
         hashMap.put("stu", studentVOList);
         Message message = new Message();
@@ -65,6 +66,7 @@ public class StudentController {
     @ResponseBody
     @RequestMapping(value = "/getCount", method = RequestMethod.POST)
     public int getCount(HttpServletRequest request){
+        //模糊查询总条数
         String studentNo = request.getParameter("studentNo");
         String studentName = request.getParameter("studentName");
         String idCard = request.getParameter("idCard");
@@ -77,7 +79,19 @@ public class StudentController {
     @ResponseBody
     @RequestMapping(value = "/addStu", method = RequestMethod.POST)
     public boolean addStu(Student student) {
+        //添加学生
         if (studentService.addStu(student) > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/delStu", method = RequestMethod.POST)
+    public boolean delStu(int studentNo) {
+        //删除学生
+        if (studentService.delStu(studentNo) > 0) {
             return true;
         } else {
             return false;
