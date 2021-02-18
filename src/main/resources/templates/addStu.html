@@ -14,7 +14,7 @@
 <div class="stu-title">
     添加学生信息
 </div>
-<div class="stu-add">
+<div class="stu-add clear">
     <table border="0" width="740" align="center">
         <tr>
             <td align="right" width="110"><!--<span class="title">* </span>学号：--></td>
@@ -60,6 +60,12 @@
             <td align="right">邮箱：</td>
             <td><input type="email" class="stuTextBox stuEmail" onblur="checkEmail(this)">&nbsp;&nbsp;&nbsp;<span
                     class="boolean">✔</span></td>
+        </tr>
+        <tr>
+            <td align="right"><span class="title">* </span>出生日期：</td>
+            <td><input type="date" class="stuTextBox stuBornDate" onblur="checkBornDate(this)">&nbsp;&nbsp;&nbsp;<span
+                    class="boolean">✔</span>
+            </td>
         </tr>
         <tr>
             <td align="right"><span class="title">* </span>出生日期：</td>

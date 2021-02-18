@@ -6,12 +6,15 @@ import com.school.result.pojo.Grade;
 import com.school.result.service.ClassService;
 import com.school.result.service.GradationService;
 import com.school.result.service.GradeService;
+import com.school.result.service.StudentService;
+import com.school.result.vo.StudentVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.jws.WebParam;
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 import java.util.Map;
 
@@ -45,6 +48,8 @@ public class HelloController {
     private GradeService gradeService;
     @Autowired
     private ClassService classService;
+    @Autowired
+    private StudentService studentService;
 
     @GetMapping("/addStu")
     public String addStu(Model model) {
@@ -63,7 +68,10 @@ public class HelloController {
     }
 
     @GetMapping("/selStu")
-    public String selStu() {
+    public String selStu(HttpServletRequest request) {
+//        List<StudentVO> studentVOList=studentService.selStu();
+//        request.setAttribute("stuList",studentVOList);
+        /*mmap.put("listmap", lists);*/
         return "selStu";
     }
 

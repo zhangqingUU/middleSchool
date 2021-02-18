@@ -1,83 +1,97 @@
 * {
-  padding: 0px;
-  margin: 0px;
+    padding: 0px;
+    margin: 0px;
 }
+
 body {
-  font-size: 12px;
-  position: relative;
+    font-size: 12px;
+    position: relative;
 }
+
 /* 查询表格外面的div */
 .stu-sel {
-  margin: 10px;
-  /* border: 1px solid red;*/
-  width: 98%;
-  height: 546px;
+    margin: 10px;
+    border: 1px solid red;
+    width: 98%;
+    /*height: 546px;*/
+    padding-bottom: 20px;
 }
+
 /* ****************************以下是模糊查询**************************** */
 /* 模糊查询表格 */
 .stu-like-table {
-  width: 100%;
-  border: 1px solid #cccccc;
-  border-collapse: collapse;
-  margin-top: 20px;
+    width: 100%;
+    border: 1px solid #cccccc;
+    border-collapse: collapse;
+    margin-top: 20px;
 }
+
 /* 设置表格的行高 */
 .stu-like-table tr {
-  height: 50px;
+    height: 50px;
 }
+
 /* 普通文本框 */
 .stuTextBox {
-  width: 220px;
-  border: 1px#B0B0B2 solid;
-  height: 22px;
-  line-height: 22px;
-  padding: 3px;
-  vertical-align: middle;
+    width: 220px;
+    border: 1px #B0B0B2 solid;
+    height: 22px;
+    line-height: 22px;
+    padding: 3px;
+    vertical-align: middle;
 }
+
 /* 下拉框 */
 .stuTextBox2 {
-  width: 74px;
-  border: 1px#B0B0B2 solid;
-  height: 32px;
-  line-height: 32px;
-  vertical-align: middle;
+    width: 74px;
+    border: 1px #B0B0B2 solid;
+    height: 32px;
+    line-height: 32px;
+    vertical-align: middle;
 }
+
 /* ****************************以下是查询表格**************************** */
 /* 查询表格 */
 .stu-sel-table {
-  width: 100%;
-  border: 1px solid #cccccc;
-  border-collapse: collapse;
-  margin-top: 20px;
+    width: 100%;
+    border: 1px solid #cccccc;
+    border-collapse: collapse;
+    margin-top: 20px;
 }
+
 /* 表格里面的第一行 */
 .stu-sel-table tr:nth-of-type(1) {
-  background-color: #dddddd;
+    background-color: #dddddd;
 }
+
 /* 设置表格的行高 */
 .stu-sel-table tr {
-  height: 34px;
+    height: 34px;
 }
+
 .stu-sel-table tr td {
-  border: 1px solid #cccccc;
+    border: 1px solid #cccccc;
 }
+
 /* 表格除了第一行，其他行鼠标移上去变颜色 */
 .stu-sel-table tr:not(:first-child):hover {
-  background-color: #dddddd;
-  transition: 0.3s;
+    background-color: #dddddd;
+    transition: 0.3s;
 }
+
 /* ****************************以下是分页**************************** */
 /* 分页 */
 .stu-page-table {
-  width: 300px;
-  border: 1px solid #cccccc;
-  border-collapse: collapse;
-  margin: 0px auto;
-  margin-top: 15px;
+    width: 300px;
+    border: 1px solid #cccccc;
+    border-collapse: collapse;
+    margin: 0px auto;
+    margin-top: 15px;
 }
+
 /* 设置表格的行高 */
 .stu-page-table tr,
 .stu-page-table td {
-  height: 30px;
-  border: 1px solid #cccccc;
+    height: 30px;
+    border: 1px solid #cccccc;
 }

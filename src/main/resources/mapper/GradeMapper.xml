@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.school.result.mapper.GradeMapper">
-    <select id="selGraListByGId" resultType="com.school.result.pojo.Grade" parameterType="int">
+    <select id="selGraListByGId" resultType="Grade" parameterType="int">
         /*根据登录老师的id查询所带班的年级*/
         select * from grade
         where gradeid in (

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.school.result.mapper.Student2Mapper">
+      <!--<select id="selStu" resultType="StudentVO">-->
+        <!--select studentno,studentname,loginpwd,sex,phone,address,borndate,borndate,email,idcard,-->
+        <!--s.gradationId,gra.gradationname,s.gradeid,g.`gradeName`,s.classid,c.classname,stustatus,beizhu-->
+        <!--from student s,gradation gra,grade g,class c-->
+        <!--where s.`gradationId`=gra.gradationid-->
+        <!--and s.`gradeId`=g.`gradeId` and s.`classId`=c.`classId`;-->
+    <!--</select>-->
+</mapper>

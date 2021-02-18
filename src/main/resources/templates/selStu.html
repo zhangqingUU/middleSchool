@@ -1,312 +1,303 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<!-- 头部加入thymeleaf命名空间 th标签引入 -->
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>查询学生信息</title>
-    <link rel="stylesheet" href="/css/selStu.css" />
+    <link rel="stylesheet" href="/css/selStu.css"/>
     <link rel="stylesheet" href="/css/common.css">
     <link rel="stylesheet" href="/css/tanKuang.css">
     <script src="/js/jquery-3.4.1.js"></script>
     <!-- 查看详情 -->
     <script src="/js/details.js"></script>
+    <!--查询学生信息的js-->
+    <script src="/js/selStu.js"></script>
 </head>
 
-<body>
+<body onload="loadPage(),loadInfo()">
 
-    <div class="stu-title">
-        查询学生信息
-    </div>
-    <!-- 缺少密码、手机、邮箱、地址 -->
-    <div class="stu-sel">
-        <!-- 模糊查询 -->
-        <table class="stu-like-table">
-            <tr align="center">
-                <td width="100"></td>
-                <td width="70" align="right">学号：</td>
-                <td><input type="text" class="stuTextBox likeStuNo"></td>
-                <td width="70" align="right">姓名：</td>
-                <td><input type="text" class="stuTextBox likeStuName"></td>
+<div class="stu-title">
+    查询学生信息
+</div>
+<!-- 缺少密码、手机、邮箱、地址 -->
+<div class="stu-sel clear">
+    <!-- 模糊查询 -->
+    <table class="stu-like-table">
+        <tr align="center">
+            <td width="100"></td>
+            <td width="70" align="right">学号：</td>
+            <td><input type="text" class="stuTextBox likeStuNo"></td>
+            <td width="70" align="right">姓名：</td>
+            <td><input type="text" class="stuTextBox likeStuName"></td>
 
-                <td rowspan="2" align="center" width="180"><button>查询</button></td>
-            </tr>
-            <tr align="center">
-                <td width="100"></td>
-                <td width="70" align="right">年级：</td>
-                <td>
-                    <select class="stuTextBox2 stuGradation">
-                        <option>层次</option>
-                        <option>2019级</option>
-                        <option>2020级</option>
-                    </select>
-                    <select class="stuTextBox2 stuGrade">
-                        <option>年级</option>
-                        <option>七年级</option>
-                        <option>八年级</option>
-                    </select>&nbsp;
-                    <select class="stuTextBox2 stuClass">
-                        <option>班级</option>
-                        <option>1班</option>
-                        <option>2班</option>
-                    </select>
-                </td>
-                <td width="70" align="right">身份证号：</td>
-                <td><input type="text" class="stuTextBox likeStuIdCard"></td>
-            </tr>
-        </table>
-        <!-- 详细信息 -->
-        <table class="stu-sel-table">
-            <tr align="center">
-                <th>序号</th>
-                <th>学号</th>
-                <th width="100">姓名</th>
-                <th width="85">层次</th>
-                <th width="85">年级</th>
-                <th width="85">班级</th>
-                <th width="55">性别</th>
-                <th width="110">手机号</th>
-                <th width="110">出生日期</th>
-                <th width="170">身份证号</th>
-                <th width="130">操作</th>
-            </tr>
-            <tr align="center">
-                <td>1000</td>
-                <td>S1101001</td>
-                <td>张三八</td>
-                <td>2019级</td>
-                <td>七年级</td>
-                <td>1班</td>
-                <td>男</td>
-                <td>15101174225</td>
-                <td>1998-10-05</td>
-                <td>130925199107166821</td>
-                <td>
-                    <a href="javascript:void(0)" onclick="details()">详情</a>&nbsp;&nbsp;&nbsp;
-                    <a href="updStu.html">修改</a>&nbsp;&nbsp;&nbsp;
-                    <a href="javascript:void(0)">删除</a>
-                </td>
-            </tr>
-            <tr align="center">
-                <td>1000</td>
-                <td>S1101001</td>
-                <td>张三八</td>
-                <td>2019级</td>
-                <td>七年级</td>
-                <td>1班</td>
-                <td>男</td>
-                <td>15101174225</td>
-                <td>1998-10-05</td>
-                <td>130925199107166821</td>
-                <td>
-                    <a href="javascript:void(0)">详情</a>&nbsp;&nbsp;&nbsp;
-                    <a href="updStu.html">修改</a>&nbsp;&nbsp;&nbsp;
-                    <a href="javascript:void(0)">删除</a>
-                </td>
-            </tr>
-            <tr align="center">
-                <td>1000</td>
-                <td>S1101001</td>
-                <td>张三八</td>
-                <td>2019级</td>
-                <td>七年级</td>
-                <td>1班</td>
-                <td>男</td>
-                <td>15101174225</td>
-                <td>1998-10-05</td>
-                <td>130925199107166821</td>
-                <td>
-                    <a href="javascript:void(0)">详情</a>&nbsp;&nbsp;&nbsp;
-                    <a href="updStu.html">修改</a>&nbsp;&nbsp;&nbsp;
-                    <a href="javascript:void(0)">删除</a>
-                </td>
-            </tr>
-            <tr align="center">
-                <td>1000</td>
-                <td>S1101001</td>
-                <td>张三八</td>
-                <td>2019级</td>
-                <td>七年级</td>
-                <td>1班</td>
-                <td>男</td>
-                <td>15101174225</td>
-                <td>1998-10-05</td>
-                <td>130925199107166821</td>
-                <td>
-                    <a href="javascript:void(0)">详情</a>&nbsp;&nbsp;&nbsp;
-                    <a href="updStu.html">修改</a>&nbsp;&nbsp;&nbsp;
-                    <a href="javascript:void(0)">删除</a>
-                </td>
-            </tr>
-            <tr align="center">
-                <td>1000</td>
-                <td>S1101001</td>
-                <td>张三八</td>
-                <td>2019级</td>
-                <td>七年级</td>
-                <td>1班</td>
-                <td>男</td>
-                <td>15101174225</td>
-                <td>1998-10-05</td>
-                <td>130925199107166821</td>
-                <td>
-                    <a href="javascript:void(0)">详情</a>&nbsp;&nbsp;&nbsp;
-                    <a href="updStu.html">修改</a>&nbsp;&nbsp;&nbsp;
-                    <a href="javascript:void(0)">删除</a>
-                </td>
-            </tr>
-            <tr align="center">
-                <td>1000</td>
-                <td>S1101001</td>
-                <td>张三八</td>
-                <td>2019级</td>
-                <td>七年级</td>
-                <td>1班</td>
-                <td>男</td>
-                <td>15101174225</td>
-                <td>1998-10-05</td>
-                <td>130925199107166821</td>
-                <td>
-                    <a href="javascript:void(0)">详情</a>&nbsp;&nbsp;&nbsp;
-                    <a href="updStu.html">修改</a>&nbsp;&nbsp;&nbsp;
-                    <a href="javascript:void(0)">删除</a>
-                </td>
-            </tr>
-            <tr align="center">
-                <td>1000</td>
-                <td>S1101001</td>
-                <td>张三八</td>
-                <td>2019级</td>
-                <td>七年级</td>
-                <td>1班</td>
-                <td>男</td>
-                <td>15101174225</td>
-                <td>1998-10-05</td>
-                <td>130925199107166821</td>
-                <td>
-                    <a href="javascript:void(0)">详情</a>&nbsp;&nbsp;&nbsp;
-                    <a href="updStu.html">修改</a>&nbsp;&nbsp;&nbsp;
-                    <a href="javascript:void(0)">删除</a>
-                </td>
-            </tr>
-            <tr align="center">
-                <td>1000</td>
-                <td>S1101001</td>
-                <td>张三八</td>
-                <td>2019级</td>
-                <td>七年级</td>
-                <td>1班</td>
-                <td>男</td>
-                <td>15101174225</td>
-                <td>1998-10-05</td>
-                <td>130925199107166821</td>
-                <td>
-                    <a href="javascript:void(0)">详情</a>&nbsp;&nbsp;&nbsp;
-                    <a href="updStu.html">修改</a>&nbsp;&nbsp;&nbsp;
-                    <a href="javascript:void(0)">删除</a>
-                </td>
-            </tr>
-            <tr align="center">
-                <td>1000</td>
-                <td>S1101001</td>
-                <td>张三八</td>
-                <td>2019级</td>
-                <td>七年级</td>
-                <td>1班</td>
-                <td>男</td>
-                <td>15101174225</td>
-                <td>1998-10-05</td>
-                <td>130925199107166821</td>
-                <td>
-                    <a href="javascript:void(0)">详情</a>&nbsp;&nbsp;&nbsp;
-                    <a href="updStu.html">修改</a>&nbsp;&nbsp;&nbsp;
-                    <a href="javascript:void(0)">删除</a>
-                </td>
-            </tr>
-            <tr align="center">
-                <td>1000</td>
-                <td>S1101001</td>
-
-                <td>张三八</td>
-                <td>2019级</td>
-                <td>七年级</td>
-                <td>1班</td>
-                <td>男</td>
-                <td>15101174225</td>
-                <td>1998-10-05</td>
-                <td>130925199107166821</td>
-                <td>
-                    <a href="javascript:void(0)">详情</a>&nbsp;&nbsp;&nbsp;
-                    <a href="updStu.html">修改</a>&nbsp;&nbsp;&nbsp;
-                    <a href="javascript:void(0)">删除</a>
-                </td>
-            </tr>
-        </table>
-        <!-- 分页 -->
-        <table class="stu-page-table">
-            <tr align="center">
-                <td>
-                    <a href="javascript:void(0)" class="startPage">首页</a>
-                </td>
-                <td>
-                    <a href="javascript:void(0)" class="prevPage">上一页</a>
-                </td>
-                <td>
-                    1/1
-                </td>
-                <td>
-                    <a href="javascript:void(0)" class="nextPage">下一页</a>
-                </td>
-                <td>
-                    <a href="javascript:void(0)" class="endPage">尾页</a>
-                </td>
-            </tr>
-        </table>
-    </div>
-    <!-- 蒙版，给弹框做铺垫 -->
-    <div class="bg" onclick="closeTan()">
-    </div>
-    <!-- 弹框 -->
-    <div class="tan">
-        <h3>张潇潇同学的详细信息</h3>
-        <table class="stu-details-table">
-            <tr align="center">
-                <td>学号：</td>
-                <td>S1101001</td>
-                <td>姓名：</td>
-                <td>张潇潇</td>
-            </tr>
-            <tr align="center">
-                <td>年级：</td>
-                <td>九年级</td>
-                <td>班级：</td>
-                <td>4班</td>
-            </tr>
-            <tr align="center">
-                <td>性别：</td>
-                <td>男</td>
-                <td>手机号：</td>
-                <td>15101174223</td>
-            </tr>
-            <tr align="center">
-                <td>出生日期：</td>
-                <td>2020-10-05</td>
-                <td>身份证号：</td>
-                <td>130925199107166821</td>
-            </tr>
-            <tr align="center">
-                <td>邮箱：</td>
-                <td>99978989@qq.com</td>
-                <td>密码：</td>
-                <td>123456</td>
-            </tr>
-            <tr align="center">
-                <td>地址</td>
-                <td colspan="2">北京市大兴区广德大街29号院9号楼</td>
-                <td><img src="img/close2_32px.png" class="closeTan" onclick="closeTan()"></td>
-            </tr>
-        </table>
-    </div>
+            <td rowspan="2" align="center" width="180">
+                <button onclick="loadPage(),loadInfo()">查询</button>
+            </td>
+        </tr>
+        <tr align="center">
+            <td width="100"></td>
+            <td width="70" align="right">年级：</td>
+            <td>
+                <select class="stuTextBox2 stuGradation">
+                    <option value="">层次</option>
+                    <option value="1">2019级</option>
+                    <option value="2">2020级</option>
+                </select>
+                <select class="stuTextBox2 stuGrade">
+                    <option value="">年级</option>
+                    <option value="1">七年级</option>
+                    <option value="2">八年级</option>
+                </select>&nbsp;
+                <select class="stuTextBox2 stuClass">
+                    <option value="">班级</option>
+                    <option value="1">1班</option>
+                    <option value="2">2班</option>
+                </select>
+            </td>
+            <td width="70" align="right">身份证号：</td>
+            <td><input type="text" class="stuTextBox likeStuIdCard"></td>
+        </tr>
+    </table>
+    <!-- 详细信息 -->
+    <table class="stu-sel-table">
+        <tr align="center">
+            <th>序号</th>
+            <th>学号</th>
+            <th width="100">姓名</th>
+            <th width="85">层次</th>
+            <th width="85">年级</th>
+            <th width="85">班级</th>
+            <th width="55">性别</th>
+            <th width="110">手机号</th>
+            <th width="110">出生日期</th>
+            <th width="170">身份证号</th>
+            <th width="130">操作</th>
+        </tr>
+        <!--<tr align="center" th:each="stu, State : ${stuList}">-->
+        <!--<td th:text="${State.index+1}"></td>-->
+        <!--<td th:text="${stu.studentNo}"></td>-->
+        <!--<td th:text="${stu.studentName}"></td>-->
+        <!--<td th:text="${stu.gradationName}"></td>-->
+        <!--<td th:text="${stu.gradeName}"></td>-->
+        <!--<td th:text="${stu.className}"></td>-->
+        <!--<td th:text="${stu.sex}"></td>-->
+        <!--<td th:text="${stu.phone}"></td>-->
+        <!--<td th:text="${stu.bornDate}"></td>-->
+        <!--<td th:text="${stu.idCard}"></td>-->
+        <!--<td>-->
+        <!--<a href="javascript:void(0)" onclick="details()">详情</a>&nbsp;&nbsp;&nbsp;-->
+        <!--<a href="updStu">修改</a>&nbsp;&nbsp;&nbsp;-->
+        <!--<a href="javascript:void(0)">删除</a>-->
+        <!--</td>-->
+        <!--</tr>-->
+        <tr align="center">
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr align="center">
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr align="center">
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr align="center">
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr align="center">
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr align="center">
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr align="center">
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr align="center">
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr align="center">
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr align="center">
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+    <!--<div class="divSpan" style="display: none">-->
+        <!--<a href="javascript:void(0)" onclick="details()">详情</a>&nbsp;&nbsp;&nbsp;-->
+        <!--<a href="updStu">修改</a>&nbsp;&nbsp;&nbsp;-->
+        <!--<a href="javascript:void(0)">删除</a>-->
+    <!--</div>-->
+    <!-- 分页 -->
+    <table class="stu-page-table">
+        <tr align="center">
+            <td>
+                <a href="javascript:void(0)" class="startPage" onclick="startPage()">首页</a>
+            </td>
+            <td>
+                <a href="javascript:void(0)" class="prevPage" onclick="prevPage()">上一页</a>
+            </td>
+            <td>
+                <span class="showPage">1/1</span>
+            </td>
+            <td>
+                <a href="javascript:void(0)" class="nextPage" onclick="nextPage()" >下一页</a>
+            </td>
+            <td>
+                <a href="javascript:void(0)" class="endPage" onclick="endPage()">尾页</a>
+            </td>
+        </tr>
+    </table>
+    <p class="pageTitle"></p>
+</div>
+<!-- 蒙版，给弹框做铺垫 -->
+<div class="bg" onclick="closeTan()">
+</div>
+<!-- 弹框 -->
+<div class="tan clear">
+    <div class="detailTitle">张潇潇同学的详细信息</div><img src="img/close2_32px.png" class="closeTan" onclick="closeTan()">
+    <table class="stu-details-table">
+        <tr align="center">
+            <td width="12%">学号：</td>
+            <td width="38%">S1101001</td>
+            <td width="12%">层次：</td>
+            <td width="38%">2021春</td>
+        </tr>
+        <tr align="center">
+            <td>年级：</td>
+            <td>九年级</td>
+            <td>班级：</td>
+            <td>4班</td>
+        </tr>
+        <tr align="center">
+            <td>性别：</td>
+            <td>男</td>
+            <td>手机号：</td>
+            <td>15101174223</td>
+        </tr>
+        <tr align="center">
+            <td>出生日期：</td>
+            <td>2020-10-05</td>
+            <td>身份证号：</td>
+            <td>130925199107166821</td>
+        </tr>
+        <tr align="center">
+            <td>邮箱：</td>
+            <td>99978989@qq.com</td>
+            <td>密码：</td>
+            <td>123456</td>
+        </tr>
+        <tr align="center">
+            <td>学员状态：</td>
+            <td>在读</td>
+            <td>地址：</td>
+            <td colspan="3">北京市大兴区广德大街29号院9号楼</td>
+        </tr>
+        <tr align="center">
+            <td>备注：</td>
+            <td colspan="3" align="left" style="padding:5px">北京市大兴区广德大街29号院9号楼北京市大兴区广德大街29号院9号楼北京市大兴区广德大街29号院9号楼北京市大兴区广德大街29号院9号楼北京市大兴区广德大街29号院9号楼北京市大兴区广德大街29号院9号楼</td>
+        </tr>
+    </table>
+</div>
 
 </body>
 

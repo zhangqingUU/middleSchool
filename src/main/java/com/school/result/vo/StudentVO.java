@@ -1,24 +1,19 @@
-package com.school.result.pojo;
+package com.school.result.vo;
 
-import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 
-
-/**
- * @Author: 张晴
- * @CreateTime: 2021-01-18
- * @Description: 学生实体类，14个字段
- */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Student implements  Serializable{
+@TableName(value = "student s inner join gradation gra inner join grade g inner join class c  on s.`gradationId`=gra.gradationid and s.`gradeId`=g.`gradeId` and s.`classId`=c.`classId`")
+public class StudentVO implements Serializable {
     @TableId(value = "studentNo")
     private int studentNo;//学号
     @TableField(value = "studentName")
@@ -33,14 +28,21 @@ public class Student implements  Serializable{
     private String email;//邮箱
     @TableField(value = "idCard")
     private String idCard;//身份证号
-    @TableField(value = "gradationId")
+    @TableField(value = "s.gradationId")
     private int gradationId;//层次，第几届
-    @TableField(value = "gradeId")
+    @TableField(value = "s.gradeId")
     private int gradeId;//年级编号
-    @TableField(value = "classId")
+    @TableField(value = "s.classId")
     private int classId;//班级编号
     @TableField(value = "stuStatus")
     private String stuStatus;//学习状态：在读（默认）、已毕业
     @TableField(value = "beiZhu")
     private String beiZhu;//备注
+    //////
+    @TableField(value = "gra.gradationName")
+    private String gradationName;
+    @TableField(value = "g.gradeName")
+    private String gradeName;
+    @TableField(value = "c.className")
+    private String className;
 }
