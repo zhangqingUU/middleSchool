@@ -29,4 +29,7 @@ public interface StudentService {
 
     //根据学号删除学生信息
     int delStu(int studentNo);
+
+    //根据学号查询学生的信息
+    StudentVO selStuByNo(int studentNo);
 }

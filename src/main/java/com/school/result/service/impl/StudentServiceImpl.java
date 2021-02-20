@@ -72,7 +72,14 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public int delStu(int studentNo) {
+        //根据学号删除学生信息
         return studentMapper.deleteById(studentNo);
+    }
+
+    @Override
+    public StudentVO selStuByNo(int studentNo) {
+        //根据学号查询学生信息
+        return student2Mapper.selectById(studentNo);
     }
 
 }

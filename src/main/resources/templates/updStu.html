@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" >
+<!--<html lang="en">-->
 
 <head>
     <meta charset="UTF-8">
@@ -18,11 +19,11 @@
         <table border="0" width="740" align="center">
             <tr>
                 <td align="right" width="110"><span class="title">* </span>学号：</td>
-                <td>S1101001</td>
+                <td th:text="${stu.studentNo}"></td>
             </tr>
             <tr>
                 <td align="right"><span class="title">* </span>姓名：</td>
-                <td><input type="text" class="stuTextBox stuName">&nbsp;&nbsp;&nbsp;<span class="boolean">✔</span></td>
+                <td><input type="text" class="stuTextBox stuName" th:value="${stu.studentName}">&nbsp;&nbsp;&nbsp;<span class="boolean">✔</span></td>
             </tr>
             <tr>
                 <td align="right"><span class="title">* </span>性别：</td>
@@ -54,20 +55,20 @@
             </tr>
             <tr>
                 <td align="right">手机：</td>
-                <td><input type="text" class="stuTextBox stuPhone"></td>
+                <td><input type="text" class="stuTextBox stuPhone"  th:value="${stu.phone}"></td>
             </tr>
             <tr>
                 <td align="right">邮箱：</td>
-                <td><input type="email" class="stuTextBox stuEmail"></td>
+                <td><input type="email" class="stuTextBox stuEmail" th:value="${stu.email}"></td>
             </tr>
             <tr>
                 <td align="right"><span class="title">* </span>出生日期：</td>
-                <td><input type="date" class="stuTextBox stuBornDate">&nbsp;&nbsp;&nbsp;<span class="boolean">✔</span>
+                <td><input type="date" class="stuTextBox stuBornDate"  th:value="${stu.bornDate}">&nbsp;&nbsp;&nbsp;<span class="boolean">✔</span>
                 </td>
             </tr>
             <tr>
                 <td align="right"><span class="title">* </span>身份证号：</td>
-                <td><input type="text" class="stuTextBox stuIdCard">&nbsp;&nbsp;&nbsp;<span class="boolean">✔</span>
+                <td><input type="text" class="stuTextBox stuIdCard"  th:value="${stu.idCard}">&nbsp;&nbsp;&nbsp;<span class="boolean">✔</span>
                 </td>
             </tr>
             <tr>

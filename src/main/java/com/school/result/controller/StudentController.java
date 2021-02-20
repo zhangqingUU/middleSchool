@@ -1,16 +1,18 @@
 package com.school.result.controller;
 
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.school.result.pojo.Student;
 import com.school.result.service.StudentService;
 import com.school.result.vo.Message;
 import com.school.result.vo.StudentVO;
-import io.swagger.annotations.*;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -52,7 +54,7 @@ public class StudentController {
 //        System.out.println("pageSize："+pageSize);
 
         List<StudentVO> studentVOList = studentService.selStu(currentPage, pageSize, studentNo, studentName, idCard, gradationId, gradeId, classId);
-        studentVOList.forEach(System.out::println);
+        //studentVOList.forEach(System.out::println);
         Map<String, Object> hashMap = new HashMap<>();
         hashMap.put("stu", studentVOList);
         Message message = new Message();
@@ -65,7 +67,7 @@ public class StudentController {
 
     @ResponseBody
     @RequestMapping(value = "/getCount", method = RequestMethod.POST)
-    public int getCount(HttpServletRequest request){
+    public int getCount(HttpServletRequest request) {
         //模糊查询总条数
         String studentNo = request.getParameter("studentNo");
         String studentName = request.getParameter("studentName");
@@ -96,5 +98,36 @@ public class StudentController {
         } else {
             return false;
         }
+    }
+
+///////////////////////////////有问题
+//    @RequestMapping(value = "/chuanZhi/{studentNo}", method = RequestMethod.GET)
+//    public String chuanZhi(@PathVariable("studentNo")int studentNo)throws Exception {
+//        StudentVO studentVO=studentService.selStuByNo(studentNo);
+//        System.out.println(studentVO);
+////        request.setAttribute("stu",studentVO);
+//        //, HttpServletRequest request, HttpServletResponse response
+////       request.getRequestDispatcher("updStu").forward(request,response);
+//
+//        return "response:updStu";
+//    }
+
+
+    /**
+     * 返回ModelAndView对象
+     *
+     * @return
+     * @throws Exception
+     */
+    @GetMapping("/chuanZhi/{studentNo}")
+    public ModelAndView chuanZhi(@PathVariable("studentNo") int studentNo) throws Exception {
+        StudentVO studentVO = studentService.selStuByNo(studentNo);
+        System.out.println(studentVO);
+        ModelAndView mv = new ModelAndView();
+
+        //在重定向中可以使用ModelAndView传递数据，但是只能传递基本数据类型和String类型
+        mv.addObject("stu", studentVO);
+        mv.setViewName("forward:/updStu");
+        return mv;
     }
 }

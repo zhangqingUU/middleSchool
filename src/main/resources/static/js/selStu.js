@@ -105,7 +105,7 @@ function loadInfo() {
             $(".stu-sel-table").find("tr:eq(" + (i + 1) + ")").find("td:eq(8)").text(this.bornDate);
             $(".stu-sel-table").find("tr:eq(" + (i + 1) + ")").find("td:eq(9)").text(this.idCard);
             //$(".stu-sel-table").find("tr:eq(" + (i + 1) + ")").find("td:eq(10)").html($(".divSpan").html());
-            $(".stu-sel-table").find("tr:eq(" + (i + 1) + ")").find("td:eq(10)").html('<div style="display: none;">' + JSON.stringify(this) + '</div><a href="javascript:void(0)" class="trDetails">详情</a>&nbsp;&nbsp;&nbsp;<a href="javascript:void(0)">修改</a>&nbsp;&nbsp;&nbsp;<a href="javascript:void(0)" class="trDel">删除</a>');
+            $(".stu-sel-table").find("tr:eq(" + (i + 1) + ")").find("td:eq(10)").html('<div style="display: none;">' + JSON.stringify(this) + '</div><a href="javascript:void(0)" class="trDetails">详情</a>&nbsp;&nbsp;&nbsp;<a href="/student/chuanZhi/'+this.studentNo+'">修改</a>&nbsp;&nbsp;&nbsp;<a href="javascript:void(0)" class="trDel">删除</a>');
             no++;//行号
         })
     })
