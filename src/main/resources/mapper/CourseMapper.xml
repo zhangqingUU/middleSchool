@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.school.result.mapper.CourseMapper">
+    <select id="selCourseByGradeId" resultType="Course" parameterType="int">
+        select c.courseId, c.courseName
+        from grade_course gc,
+             course c,
+             teacher t
+        where c.courseId = gc.courseId
+          and t.courseId = c.courseId
+          and gc.gradeId = #{gradeId}
+          and t.teacherId = #{teacherId};
+    </select>
+</mapper>
