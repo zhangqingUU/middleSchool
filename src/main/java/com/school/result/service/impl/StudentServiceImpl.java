@@ -77,6 +77,12 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
+    public int updStu(Student student) {
+        //根据学号修改学生信息
+        return studentMapper.updateById(student);
+    }
+
+    @Override
     public StudentVO selStuByNo(int studentNo) {
         //根据学号查询学生信息
         return student2Mapper.selectById(studentNo);

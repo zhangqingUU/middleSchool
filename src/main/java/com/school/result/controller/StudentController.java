@@ -1,6 +1,9 @@
 package com.school.result.controller;
 
 import com.school.result.pojo.Student;
+import com.school.result.service.ClassService;
+import com.school.result.service.GradationService;
+import com.school.result.service.GradeService;
 import com.school.result.service.StudentService;
 import com.school.result.vo.Message;
 import com.school.result.vo.StudentVO;
@@ -24,6 +27,15 @@ public class StudentController {
 
     @Autowired
     private StudentService studentService;
+
+    @Autowired
+    private GradationService gradationService;
+
+    @Autowired
+    private GradeService gradeService;
+
+    @Autowired
+    private ClassService classService;
 
     //    @ApiOperation(value = "这里输入用户的id就能查看用户信息", notes = "输入id就可以了")
 //    @ApiImplicitParams(
@@ -99,7 +111,16 @@ public class StudentController {
             return false;
         }
     }
-
+    @ResponseBody
+    @RequestMapping(value = "/updStu", method = RequestMethod.POST)
+    public boolean updStu(Student student) {
+        //修改学生
+        if (studentService.updStu(student) > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 ///////////////////////////////有问题
 //    @RequestMapping(value = "/chuanZhi/{studentNo}", method = RequestMethod.GET)
 //    public String chuanZhi(@PathVariable("studentNo")int studentNo)throws Exception {
@@ -119,6 +140,7 @@ public class StudentController {
      * @return
      * @throws Exception
      */
+    @ResponseBody
     @GetMapping("/chuanZhi/{studentNo}")
     public ModelAndView chuanZhi(@PathVariable("studentNo") int studentNo) throws Exception {
         StudentVO studentVO = studentService.selStuByNo(studentNo);
@@ -127,6 +149,14 @@ public class StudentController {
 
         //在重定向中可以使用ModelAndView传递数据，但是只能传递基本数据类型和String类型
         mv.addObject("stu", studentVO);
+        //添加层次信息
+        mv.addObject("gradation",gradationService.selGraList(1));
+        mv.addObject("grade",gradeService.selGraListByGId(studentVO.getGradationId(),1));
+        mv.addObject("class",classService.setClaByGradeId(studentVO.getGradationId(),studentVO.getGradeId(),1));
+
+//        System.out.println("xxxx="+studentVO.getGradationId());
+//        System.out.println(gradeService.selGraListByGId(studentVO.getGradationId(),1));
+      //  mv.addObject("xxx","你好吗");
         mv.setViewName("forward:/updStu");
         return mv;
     }

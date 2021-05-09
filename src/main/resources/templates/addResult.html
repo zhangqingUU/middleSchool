@@ -13,7 +13,7 @@
     <script src="js/addResult.js"></script>
 </head>
 
-<body>
+<body onload="selGrasList(),loadExamType()">
 <div class="stu-title">
     添加学生成绩
 </div>
@@ -22,32 +22,22 @@
     <table class="result-dance-table">
         <tr align="center">
             <td><span class="title">* </span>请选择：</td>
-            <td><select class="textBox textBox-class stuGradation">
-                <option>层次</option>
-                <option>2019级</option>
-                <option>2020级</option>
+            <td><select class="textBox textBox-class stuGradation" onchange="changeGraListByGId(this)">
+                <option value="0">层次</option>
             </select>
             </td>
             <td>
-                <select class="textBox textBox-class stuGrade">
-                    <option>年级</option>
-                    <option>七年级</option>
-                    <option>八年级</option>
+                <select class="textBox textBox-class stuGrade" onchange="changeGradeByGId(this)">
+                    <option value="0">年级</option>
                 </select>
             </td>
             <td>
                 <select class="textBox textBox-class stuClass">
-                    <option>班级</option>
-                    <option>1班</option>
-                    <option>2班</option>
+                    <option value="0">班级</option>
                 </select>
             </td>
             <td><select class="textBox textBox-class stuExamType">
-                <option>考试类型</option>
-                <option>日测</option>
-                <option>周考</option>
-                <option>期中考试</option>
-                <option>期末考试</option>
+                <option value="0">考试类型</option>
             </select>
             </td>
             <td align="center" width="120">
@@ -58,10 +48,8 @@
     <!-- 二级联动 -->
     <table class="chooseSubject-table">
         <tr align="center">
-            <td>语文 <input type="checkbox" value="语文" class="toggle">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" placeholder="总分" class="textBox textBox-totalScore totalScore"></td>
-            <td>语文 <input type="checkbox" value="语文" class="toggle">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" placeholder="总分" class="textBox textBox-totalScore totalScore"></td>
-            <td>语文 <input type="checkbox" value="语文" class="toggle">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" placeholder="总分" class="textBox textBox-totalScore totalScore"></td>
-            <td width="120"><button class="btn2" onclick="btnNext2()">下一步</button></td>
+<!--            <td>语文 <input type="radio" value="语文" class="toggle">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" placeholder="总分" class="textBox textBox-totalScore totalScore"></td>-->
+            <td width="120" class="btn-course"><button class="btn2" onclick="btnNext2()">下一步</button></td>
         </tr>
     </table>
     <h3 class="generate" onclick="btnNext3()"><a href="javascript:void(0)">根据以上信息，生成考试成绩单</a></h3>
@@ -70,27 +58,18 @@
             <th>序号</th>
             <th width="150">学号</th>
             <th width="150">姓名</th>
-            <th width="150">语文</th>
-            <th width="150">数学</th>
-            <th width="150">英语</th>
             <th width="200">备注</th>
         </tr>
         <tr align="center">
             <td>1</td>
             <td>S1101001</td>
-            <td>张潇洒</td>
-            <td>88</td>
-            <td>78</td>
-            <td>99</td>
+            <td>xxx</td>
             <td></td>
         </tr>
         <tr align="center">
             <td>1</td>
             <td>S1101001</td>
-            <td>张潇洒</td>
-            <td>88</td>
-            <td>78</td>
-            <td>99</td>
+            <td>xxx</td>
             <td></td>
         </tr>
     </table>

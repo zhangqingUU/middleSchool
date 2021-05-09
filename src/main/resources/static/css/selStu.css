@@ -11,7 +11,7 @@ body {
 /* 查询表格外面的div */
 .stu-sel {
     margin: 10px;
-    border: 1px solid red;
+    /*border: 1px solid red;*/
     width: 98%;
     /*height: 546px;*/
     padding-bottom: 20px;

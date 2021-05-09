@@ -109,6 +109,7 @@ function changeGraListByGId(here) {
     $(".stuGrade").prop('selectedIndex', 0);
     $(".stuClass").prop('selectedIndex', 0);
     var id = $(here).val();
+
     var json = {
         teacherId: 1,
         gradationId: id

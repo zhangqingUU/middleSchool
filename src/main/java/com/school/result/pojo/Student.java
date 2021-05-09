@@ -26,6 +26,7 @@ public class Student implements  Serializable{
     private String studentName;//学生姓名
     @TableField(value = "loginPwd")
     private String loginPwd;//密码
+    @TableField(value = "sex")
     private String sex;//性别
     private String phone;//手机号
     private String address;//地址
