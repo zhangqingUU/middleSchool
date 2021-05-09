@@ -1,5 +1,6 @@
 /* 一级联动---显示--二级联动 */
 function btnNext1() {
+    //这是测试
     var stuGradation = $(".stuGradation").val();
     var stuGrade = $(".stuGrade").val();
     var stuClass = $(".stuClass").val();
