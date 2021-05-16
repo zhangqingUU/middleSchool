@@ -85,4 +85,8 @@ public class HelloController {
         return "updResult";
     }
 
+    @GetMapping("/otherResult")
+    public String otherResult() {
+        return "otherResult";
+    }
 }

@@ -158,4 +158,24 @@ public class ResultApplicationTests {
         }
     }
 
+    @Test
+    public void test11(){
+        //计算每个人单科的最高成绩(要求显示字段: 学号，姓名，课程ID，课程名称，最高成绩)
+        List<ResultVO> resultVOList= resultMapper.selResult1(2,1,3,1);
+        resultVOList.forEach(System.out::println);
+    }
+
+    @Test
+    public void test12(){
+        //列出各门课程成绩最好的学生(要求显示字段: 学号，姓名,科目ID，科目名称，成绩)
+        List<ResultVO> resultVOList= resultMapper.selResult2(2,1,3,1);
+        resultVOList.forEach(System.out::println);
+    }
+
+    @Test
+    public void test13(){
+        //列出各门课程的平均(要求显示字段: 学号，姓名,科目ID，科目名称，平均成绩)
+        List<ResultVO> resultVOList= resultMapper.selResult3(2,1,3,1);
+        resultVOList.forEach(System.out::println);
+    }
 }
