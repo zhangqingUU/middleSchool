@@ -1,75 +1,83 @@
 /* 通用的css，举例：标题、按钮、…… */
 /* 标题 */
 .stu-title {
-  width: 100%;
-  height: 40px;
-  line-height: 40px;
-  border-bottom: 1px solid #b6b6b6;
-  font-weight: bold;
-  font-size: 15px;
-  font-family: "微软雅黑";
-  text-indent: 1em;
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    border-bottom: 1px solid #b6b6b6;
+    font-weight: bold;
+    font-size: 15px;
+    font-family: "微软雅黑";
+    text-indent: 1em;
 }
+
 /* 按钮 */
 button {
-  height: 34px;
-  line-height: 34px;
-  padding: 0 24px;
-  background-color: #009688;
-  color: #fff;
-  text-align: center;
-  font-size: 14px;
-  border: none;
-  border-radius: 2px;
-  cursor: pointer;
-  /*  */
-  outline: 0;
-  box-sizing: border-box;
+    height: 34px;
+    line-height: 34px;
+    padding: 0 24px;
+    background-color: #009688;
+    color: #fff;
+    text-align: center;
+    font-size: 14px;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    /*  */
+    outline: 0;
+    box-sizing: border-box;
 }
+
 /* 按钮-移上 */
 button:hover {
-  opacity: 0.8;
-  transition: 1s;
+    opacity: 0.8;
+    transition: 1s;
 }
+
 /* 提示 */
 .title {
-  color: red;
-  font-weight: bold;
+    color: red;
+    font-weight: bold;
 }
+
 /* 美化复选框 */
 .toggle {
-  text-align: center;
-  vertical-align: middle;
-  border: none;
-  appearance: none;
-  /*关键代码*/
-  -webkit-appearance: none;
-  outline: none;
-  cursor: pointer;
+    text-align: center;
+    vertical-align: middle;
+    border: none;
+    appearance: none;
+    /*关键代码*/
+    -webkit-appearance: none;
+    outline: none;
+    cursor: pointer;
 }
+
 /* 美化复选框---未选中 */
 .toggle::after {
-  content: url('../img/unchecked_16px.png');
+    content: url('../img/unchecked_16px.png');
 }
+
 /* 美化复选框---选中 */
 .toggle:checked::after {
-  content: url('../img/checked_16px.png');
+    content: url('../img/checked_16px.png');
 }
+
 /*解决父级盒子塌陷的问题*/
-.clear:after{
-  content: '';          /*在clear类后面添加内容为空*/
-  display: block;      /*把添加的内容转化为块元素*/
-  clear: both;         /*清除这个元素两边的浮动*/
+.clear:after {
+    content: ''; /*在clear类后面添加内容为空*/
+    display: block; /*把添加的内容转化为块元素*/
+    clear: both; /*清除这个元素两边的浮动*/
 }
+
 /*分页提示*/
-.pageTitle{
-  width: 200px;
-  /*background-color: pink;*/
-  text-align: right;
-  float: right;
-  margin-right: 20px;
-  color: red;
-  font-weight: bold;
-  margin-top: -25px;
+.pageTitle {
+    width: 200px;
+    /*background-color: pink;*/
+    ttext-alignext-align: right;
+    float: right;
+    margin-right: 20px;
+    color: red;
+    font-weight: bold;
+    margin-top: -25px;
 }
 

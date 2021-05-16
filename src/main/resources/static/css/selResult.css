@@ -1,78 +1,93 @@
 * {
-  padding: 0px;
-  margin: 0px;
+    padding: 0px;
+    margin: 0px;
 }
+
 body {
-  font-size: 12px;
+    font-size: 12px;
 }
+
 /* 查询表格外面的div */
 .result-sel-div {
-  margin: 10px;
-/*   border: 1px solid red; */
-  width: 98%;
-  height: 530px;
+    margin: 10px;
+    /*   border: 1px solid red; */
+    width: 98%;
+    height: 530px;
 }
+
 .result-sel-div table {
-  border: 1px solid #cccccc;
-  width: 100%;
-  border-collapse: collapse;
+    border: 1px solid #cccccc;
+    width: 100%;
+    border-collapse: collapse;
 }
+
 /* 模糊查询表格 */
 .result-like-table {
-  width: 100%;
-  border: 1px solid #cccccc;
-  margin-top: 10px;
+    width: 100%;
+    border: 1px solid #cccccc;
+    margin-top: 10px;
 }
+
 /* 设置表格的行高 */
 .result-like-table tr {
-  height: 46px;
+    height: 46px;
 }
+
 /* 普通文本框 */
 .textBox {
-  border: 1px#B0B0B2 solid;
-  height: 30px;
-  line-height: 30px;
-  padding: 5px 3px;
-  vertical-align: middle;
+    border: 1px #B0B0B2 solid;
+    height: 30px;
+    line-height: 30px;
+    padding: 5px 3px;
+    vertical-align: middle;
 }
+
 /* 一级联动，选择层次、年级、班级 */
 .textBox-class {
-  width: 120px;
+    width: 120px;
 }
+
 /* ****************************以下是查询的具体数据**************************** */
 .result-sel-table {
 }
+
 .result-sel-table tr {
-  height: 34px;
+    height: 34px;
 }
+
 .result-sel-table tr td,
 .result-sel-table tr th {
-  border: 1px solid #cccccc;
+    border: 1px solid #cccccc;
 }
+
 .result-sel-table tr:nth-of-type(1) {
-  background-color: #dddddd;
+    background-color: #dddddd;
 }
+
 /* 表格除了第一行，其他行鼠标移上去变颜色 */
 .result-sel-table tr:not(:first-child):hover {
-  background-color: #dddddd;
-  transition: 0.3s;
+    background-color: #dddddd;
+    transition: 0.3s;
 }
+
 /* ****************************以下是分页**************************** */
 /* 分页 */
 .result-sel-div .result-page-table {
-  width: 300px;
-  margin: 0px auto;
-  margin-top: 15px;
+    width: 300px;
+    margin: 0px auto;
+    margin-top: 15px;
 }
+
 /* 设置表格的行高 */
 .result-sel-div .result-page-table tr,
 .result-sel-div .result-page-table td {
-  height: 30px;
-  border: 1px solid #cccccc;
+    height: 30px;
+    border: 1px solid #cccccc;
 }
+
 /* 生成提示文字 */
 .generate {
-  line-height: 40px;
-  text-align: right;
-  padding-right: 10px;
+    line-height: 40px;
+    text-align: right;
+    padding-right: 10px;
 }

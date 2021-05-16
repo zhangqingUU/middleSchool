@@ -34,4 +34,10 @@
             #{student.beiZhu}
         );
     </insert>
+
+    <select id="selClassStu" resultType="Student" parameterType="int">
+        select studentNo,studentName from student
+        where gradationId=#{gradationId} and gradeId=#{gradeId} and classId=#{classId} and stuStatus='在读';
+    </select>
+
 </mapper>

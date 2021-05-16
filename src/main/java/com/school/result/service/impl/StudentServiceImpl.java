@@ -88,4 +88,9 @@ public class StudentServiceImpl implements StudentService {
         return student2Mapper.selectById(studentNo);
     }
 
+    @Override
+    public List<Student> selClassStu(int gradationId, int gradeId, int classId) {
+        return studentMapper.selClassStu(gradationId,gradeId,classId);
+    }
+
 }

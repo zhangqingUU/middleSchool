@@ -3,16 +3,12 @@ package com.school.result;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.school.result.controller.Student2Controller;
-import com.school.result.mapper.CourseMapper;
-import com.school.result.mapper.ExamTypeMapper;
-import com.school.result.mapper.Student2Mapper;
-import com.school.result.mapper.StudentMapper;
-import com.school.result.pojo.Course;
-import com.school.result.pojo.ExamType;
-import com.school.result.pojo.Student;
-import com.school.result.pojo.Teacher;
+import com.school.result.mapper.*;
+import com.school.result.pojo.*;
 import com.school.result.service.TeacherService;
+import com.school.result.vo.ResultVO;
 import com.school.result.vo.StudentVO;
+import org.apache.ibatis.mapping.ResultMap;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,6 +34,9 @@ public class ResultApplicationTests {
 
     @Autowired
     private CourseMapper courceMapper;
+
+    @Autowired
+    private ResultMapper resultMapper;
 
     @Test
     public void contextLoads() {
@@ -101,6 +100,62 @@ public class ResultApplicationTests {
         //查询指定gradeId年级下面的课程
         List<Course> courseList = courceMapper.selCourseByGradeId(1, 1);
         courseList.forEach(System.out::println);
+    }
+
+    @Test
+    public  void test7(){
+        //添加成绩前，先把本班的学生查询出来
+        List<Student> studentList= studentMapper.selClassStu(2,1,1);
+        studentList.forEach(System.out::println);
+    }
+
+    @Test
+    public void test8(){
+        //添加学生的成绩
+        Result result=new Result();
+        result.setStudentNo(123321);
+        result.setCourseId(1);
+        result.setStudentResult(99);
+        result.setGradationId(2);
+        result.setGradeId(3);
+        result.setClassId(4);
+        result.setExamTypeId(1);
+        result.setBeiZhu("xxx");
+        result.setTotalScore(120);
+
+        int r=resultMapper.addResult(result);
+        if(r>0) {
+            System.out.println("成绩添加成功！");
+        }else{
+            System.out.println("成绩添加失败！");
+        }
+    }
+
+    @Test
+    public void test9(){
+        //查询班级的成绩
+        List<ResultVO> resultList=resultMapper.selClassResult(2,1,3,1);
+        resultList.forEach(System.out::println);
+    }
+
+    @Test
+    public void test10(){
+        //添加学生的成绩
+        Result result=new Result();
+        result.setStudentNo(10083);
+        result.setCourseId(1);
+        result.setStudentResult(12);
+        result.setGradationId(2);
+        result.setGradeId(1);
+        result.setClassId(3);
+        result.setExamTypeId(1);
+
+        int r=resultMapper.updResult(result);
+        if(r>0) {
+            System.out.println("成绩修改成功！");
+        }else{
+            System.out.println("成绩修改失败！");
+        }
     }
 
 }

@@ -27,7 +27,7 @@ public interface StudentService {
     List<StudentVO> selStu(int currentPage, int pageSize, String studentNo, String studentName, String idCard, String gradationId, String gradeId, String classId);
 
     //得到学生总人数
-    int getCount(String studentNo, String studentName, String idCard, String gradationId, String gradeId,String classId);
+    int getCount(String studentNo, String studentName, String idCard, String gradationId, String gradeId, String classId);
 
     //根据学号删除学生信息
     int delStu(int studentNo);
@@ -37,4 +37,7 @@ public interface StudentService {
 
     //根据学号查询学生的信息
     StudentVO selStuByNo(int studentNo);
+
+    //添加学生成绩，前提查询出班级的学号和姓名
+    List<Student> selClassStu(int gradationId, int gradeId, int classId);
 }

@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpServletRequest;
+
 /**
  * @Author: 张晴
  * @CreateTime: 2021-01-16
@@ -23,8 +25,8 @@ public class TeacherController {
     @RequestMapping(value = "/loginIn", method = RequestMethod.POST)
     @ResponseBody
     public Teacher loginIn(String phone, String loginPwd) {
-
-        return teacherService.loginIn(phone, loginPwd);
+        Teacher teacher=teacherService.loginIn(phone, loginPwd);
+        return teacher;
     }
 
 

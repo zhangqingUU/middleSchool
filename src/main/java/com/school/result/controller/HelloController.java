@@ -3,10 +3,7 @@ package com.school.result.controller;
 import com.school.result.pojo.Class2;
 import com.school.result.pojo.Gradation;
 import com.school.result.pojo.Grade;
-import com.school.result.service.ClassService;
-import com.school.result.service.GradationService;
-import com.school.result.service.GradeService;
-import com.school.result.service.StudentService;
+import com.school.result.service.*;
 import com.school.result.vo.StudentVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -25,6 +22,19 @@ import java.util.Map;
  */
 @Controller
 public class HelloController {
+
+    //调用service
+    @Autowired
+    private GradationService gradationService;
+    @Autowired
+    private GradeService gradeService;
+    @Autowired
+    private ClassService classService;
+    @Autowired
+    private StudentService studentService;
+    @Autowired
+    private TeacherService teacherService;
+
     @RequestMapping(value = "/index", method = RequestMethod.GET)
     public String index() {
         return "index";
@@ -40,16 +50,6 @@ public class HelloController {
     public String addResult() {
         return "addResult";
     }
-
-    //调用service
-    @Autowired
-    private GradationService gradationService;
-    @Autowired
-    private GradeService gradeService;
-    @Autowired
-    private ClassService classService;
-    @Autowired
-    private StudentService studentService;
 
     @GetMapping("/addStu")
     public String addStu(Model model) {
@@ -80,5 +80,9 @@ public class HelloController {
         return "updStu";
     }
 
+    @GetMapping("/updResult")
+    public String updResult() {
+        return "updResult";
+    }
 
 }

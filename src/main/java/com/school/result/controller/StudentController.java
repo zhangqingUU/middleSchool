@@ -111,6 +111,7 @@ public class StudentController {
             return false;
         }
     }
+
     @ResponseBody
     @RequestMapping(value = "/updStu", method = RequestMethod.POST)
     public boolean updStu(Student student) {
@@ -121,6 +122,13 @@ public class StudentController {
             return false;
         }
     }
+
+    @ResponseBody
+    @RequestMapping(value = "selClassStu", method = RequestMethod.POST)
+    public List<Student> selClassStu(int gradationId, int gradeId, int classId) {
+        return studentService.selClassStu(gradationId, gradeId, classId);
+    }
+
 ///////////////////////////////有问题
 //    @RequestMapping(value = "/chuanZhi/{studentNo}", method = RequestMethod.GET)
 //    public String chuanZhi(@PathVariable("studentNo")int studentNo)throws Exception {
@@ -150,13 +158,13 @@ public class StudentController {
         //在重定向中可以使用ModelAndView传递数据，但是只能传递基本数据类型和String类型
         mv.addObject("stu", studentVO);
         //添加层次信息
-        mv.addObject("gradation",gradationService.selGraList(1));
-        mv.addObject("grade",gradeService.selGraListByGId(studentVO.getGradationId(),1));
-        mv.addObject("class",classService.setClaByGradeId(studentVO.getGradationId(),studentVO.getGradeId(),1));
+        mv.addObject("gradation", gradationService.selGraList(1));
+        mv.addObject("grade", gradeService.selGraListByGId(studentVO.getGradationId(), 1));
+        mv.addObject("class", classService.setClaByGradeId(studentVO.getGradationId(), studentVO.getGradeId(), 1));
 
 //        System.out.println("xxxx="+studentVO.getGradationId());
 //        System.out.println(gradeService.selGraListByGId(studentVO.getGradationId(),1));
-      //  mv.addObject("xxx","你好吗");
+        //  mv.addObject("xxx","你好吗");
         mv.setViewName("forward:/updStu");
         return mv;
     }

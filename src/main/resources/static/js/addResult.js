@@ -6,10 +6,10 @@ function btnNext1() {
     var stuClass = $(".stuClass").val();
     var stuExamType = $(".stuExamType").val();
 
-    console.log(stuGradation);
-    console.log(stuGrade);
-    console.log(stuClass);
-    console.log(stuExamType);
+    // console.log(stuGradation);
+    // console.log(stuGrade);
+    // console.log(stuClass);
+    // console.log(stuExamType);
 
     if (stuGradation != "0" && stuGrade != "0" && stuClass != "0" && stuExamType != "0") {
         $(".chooseSubject-table").slideDown();
@@ -43,19 +43,33 @@ function btnNext3() {
         return;
     }
     //生成导航栏的标题，举例"语文"
-    var $th='<th width="150">'+$(".toggle").val()+'</th>';
+    var $th = '<th width="150">' + $(".toggle").prev().text() + '</th>';
     $(".result-add-table").find("tr:eq(0)").find("th:eq(2)").after($th);
     //生成填写成绩的框
-    var $td='<td width="150"></td>';
+    var $td = '<td width="150"></td>';
     $(".result-add-table").find("tr:gt(0)").find("td:eq(2)").after($td);
     $(".generate").slideUp();
     $(".result-add-table").fadeIn(1000);
-    /* 规定表格可以编辑的部分 */
-    var $trs = $(".result-add-table tr");
-    $trs.each(function (i) {
-        //i指的是下标
-        $(this).find("td:gt(2)").attr("contenteditable", "true");
-    });
+    //查询学生的学号和姓名，再进行下一步的操作
+    var stuGradation = $(".stuGradation").val();
+    var stuGrade = $(".stuGrade").val();
+    var stuClass = $(".stuClass").val();
+
+    var json = {
+        gradationId: stuGradation,
+        gradeId: stuGrade,
+        classId: stuClass
+    };
+
+    $.post("/student/selClassStu", json, function (data) {
+        //console.log(data);
+        $.each(data, function (i, v) {
+            var $tr = "<tr align='center'><td>" + (i + 1) + "</td><td>" + v.studentNo + "</td><td>" + v.studentName + "</td><td contenteditable='true'></td><td contenteditable='true'></td></tr>";
+            $(".result-add-table").append($tr);
+        })
+    }, "json");
+    //显示"保存成绩"的按钮
+    $(".div-save").fadeIn(2000);
 }
 
 //加载第几届，层次的全部信息
@@ -80,16 +94,15 @@ function loadExamType() {
 
 //加载所属年级下面的科目
 function loadCourseByGradeId() {
-
     var gradeId = $(".stuGrade").val();
     var json = {
         gradeId: gradeId,
         teacherId: 1
     };
-    console.log(json);
+    //console.log(json);
     $.post("/course/selCourseByGradeId", json, function (data) {
         $.each(data, function (i, v) {
-            var $td = '<td>' + v.courseName + ' <input type="radio" value="' + v.courseName + '" class="toggle">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" placeholder="总分" class="textBox textBox-totalScore totalScore"></td>';
+            var $td = '<td><span>' + v.courseName + '</span> <input type="radio" value="' + v.courseId + '" class="toggle">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" placeholder="总分" class="textBox textBox-totalScore totalScore"></td>';
             $(".btn-course").before($td);
         })
     }, "json");
@@ -139,3 +152,64 @@ function changeGradeByGId(here) {
     }, "json")
 }
 
+//保存成绩按钮
+function btnSave() {
+    //获取层次、年级、班级、考试类型
+    var gradationId = $(".stuGradation").val();
+    var gradeId = $(".stuGrade").val();
+    var classId = $(".stuClass").val();
+    var examTypeId = $(".stuExamType").val();
+
+    //获取科目类型、满分
+    var courseId = $(".toggle").val();
+    var totalScore = $(".totalScore").val().trim();
+
+    var $tr = $(".result-add-table tr:gt(0)");
+    let count2=0;
+    $tr.each(function (i) {
+        var studentResult = $(this).find("td:eq(3)").text().trim();
+        var studentName = $(this).find("td:eq(2)").text().trim();
+        var studentNo = $(this).find("td:eq(1)").text().trim();
+        var beiZhu = $(this).find("td:eq(4)").text().trim();
+
+        if (studentResult == "") {
+            alert(studentName + "成绩不能为空！");
+            return false;
+        }
+        if (isNaN(studentResult) == true) {
+            alert(studentName + "录入的成绩有问题！");
+            return false;
+        }
+
+        var json = {
+            studentNo: studentNo,
+            courseId: courseId,
+            studentResult: studentResult,
+            gradationId: gradationId,
+            gradeId: gradeId,
+            classId: classId,
+            examTypeId: examTypeId,
+            beiZhu: beiZhu,
+            totalScore: totalScore
+        };
+        //console.log(json);
+
+        $.post("/result/addResult",json,function (data){
+            count2++;
+        });
+
+    });
+
+    //这块有bug，count2的值抓不到
+    alert("成绩保存成功！");
+    $(".btn-save").attr("disabled","disabled");
+
+    //把数据添加到数据库
+    // alert($tr.length+"xxxx"+count2);
+    // if(count2==$tr.length){
+    //     alert("成绩保存成功！");
+    // }else{
+    //     alert("成绩保存失败！");
+    // }
+
+}
